@@ -30,19 +30,18 @@ module.exports = {
         overlayDrafts: !isProd
       }
     },
-  },
-  {
-    resolve: `gatsby-source-filesystem`,
-    options: {
-      name: `src`,
-      path: `${__dirname}/src/`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
     },
-  },
-  {
-    resolve: `gatsby-plugin-typography`,
-    options: {
-      pathToConfigModule: `src/lib/typography`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/lib/typography`,
+      },
     },
-  },
   ]
 }
