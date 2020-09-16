@@ -19,8 +19,8 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
-    'gatsby-plugin-transition-link',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-transition-link',
     {
       resolve: 'gatsby-source-sanity',
       options: {
