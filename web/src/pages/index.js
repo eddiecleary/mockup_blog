@@ -13,7 +13,7 @@ import Testimonials from '../components/testimonials'
 import Img from 'gatsby-image'
 import BlogList from '../components/blogList'
 import Newsletter from '../components/newsletter'
-import Anilink from 'gatsby-plugin-transition-link/AniLink'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 // import './styles/index.scss'
 import styled, { keyframes } from 'styled-components'
 
