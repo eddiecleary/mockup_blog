@@ -7,8 +7,6 @@ import styled from 'styled-components'
 import cn from 'classnames'
 import {getFluidGatsbyImage, getFixedGatsbyImage} from 'gatsby-source-sanity'
 
-// import Anilink from 'gatsby-plugin-transition-link/Anilink'
-
 export const BlogCard = ({imageId,title,author,publishedAt,category,excerpt,alt,src}) => {
   return (
     <StyledBlogCard>
