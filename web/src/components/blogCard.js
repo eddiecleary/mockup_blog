@@ -1,6 +1,6 @@
 // import '../scss/components/_blogcard.scss'
 import React from 'react'
-import Img from './image'
+import Img from 'gatsby-image'
 import PortableText from '@sanity/block-content-to-react'
 import { format, parseISO, formatISO } from 'date-fns'
 import styled from 'styled-components'
@@ -11,7 +11,7 @@ export const BlogCard = ({imageId,title,author,publishedAt,category,excerpt,alt,
   return (
     <StyledBlogCard>
       <div className="blog-card-img-wrap">
-        <Img imageId={imageId} className={"blog-card-img"} alt={alt} width={500}/>
+        <Img fluid={imageId} className={"blog-card-img"} alt={alt} width={500}/>
         <div className={`blog-card-category ${category.toString().toLowerCase()}`}>{category}</div>
       </div>
       <div className="blog-card-text-wrap">
