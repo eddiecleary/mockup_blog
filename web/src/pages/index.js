@@ -13,7 +13,7 @@ import Testimonials from '../components/testimonials'
 import Img from 'gatsby-image'
 import BlogList from '../components/blogList'
 import Newsletter from '../components/newsletter'
-import Anilink from 'gatsby-plugin-transition-link/Anilink'
+import Anilink from 'gatsby-plugin-transition-link/AniLink'
 // import './styles/index.scss'
 import styled, { keyframes } from 'styled-components'
 
@@ -120,7 +120,7 @@ export default function Home({data}) {
         <section className="latest-blogs-section">
           <div className="container">
             <BlogList />
-            <Anilink className="btn btn-secondary latest-blogs-btn" fade to="/">view all posts</Anilink>
+            <AniLink className="btn btn-secondary latest-blogs-btn" fade to="/">view all posts</AniLink>
           </div>
         </section>
       

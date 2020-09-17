@@ -1,7 +1,7 @@
 // import '../scss/layout/_footer.scss'
 import React from 'react'
 import socialIcons from '../constants/social-icons'
-import Anilink from 'gatsby-plugin-transition-link/Anilink'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Dot from './dot.js'
 import links from '../constants/links'
 import {blogLinks} from '../constants/links'
@@ -20,20 +20,20 @@ export const Footer = () => {
         </div>
 
         <div className="footer-nav-wrap">
-          <Anilink className="footer-logo-wrap" fade to="/">
+          <AniLink className="footer-logo-wrap" fade to="/">
             <img className="footer-logo" src={logo} alt="Amelia Pond Logo - cursive writing of her name"/>
-          </Anilink>
+          </AniLink>
           <ul className="footer-nav-list left">
             {blogLinks.map((item)=>{
               return(
-                <li key={uuidv4()}><Anilink className="footer-nav-link" fade to="/" key={uuidv4()}><Dot color={item.color} />{item.text}</Anilink></li>
+                <li key={uuidv4()}><AniLink className="footer-nav-link" fade to="/" key={uuidv4()}><Dot color={item.color} />{item.text}</AniLink></li>
               )
             })}
           </ul>
           <ul className="footer-nav-list right">
             {links.map((item)=>{
               return(
-                <li key={uuidv4()}><Anilink className="footer-nav-link" fade to="/" key={uuidv4()}>{item.text}</Anilink></li>
+                <li key={uuidv4()}><AniLink className="footer-nav-link" fade to="/" key={uuidv4()}>{item.text}</AniLink></li>
               )
             })}
           </ul>

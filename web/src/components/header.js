@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import React, {useState} from 'react'
-import Anilink from 'gatsby-plugin-transition-link/Anilink'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Dot from './dot.js'
 import {Spiral as Hamburger} from 'hamburger-react'
 import links from '../constants/links'
@@ -18,22 +18,22 @@ export const Header = () => {
     <StyledHeader>
       <div className="container">
         <div className="header-wrap">
-          <Anilink className="logo-wrap" fade to="/">
+          <AniLink className="logo-wrap" fade to="/">
             <img className="logo" src={logo} alt="Amelia Pond Logo - cursive writing of her name"/>
-          </Anilink>
+          </AniLink>
           <nav className="nav" role="navigation">
             <div className={isOpen?`nav-wrap expanded`:`nav-wrap`}>
               <ul className="nav-list">
                 {blogLinks.map((item)=>{
                   return(
-                    <li key={uuidv4()}><Anilink className="nav-link" fade to="/" key={uuidv4()}><Dot color={item.color} />{item.text}</Anilink></li>
+                    <li key={uuidv4()}><AniLink className="nav-link" fade to="/" key={uuidv4()}><Dot color={item.color} />{item.text}</AniLink></li>
                   )
                 })}
               </ul>
               <ul className="nav-list">
               {links.map((item)=>{
                   return(
-                    <li key={uuidv4()}><Anilink className="nav-link" fade to="/" key={uuidv4()}>{item.text}</Anilink></li>
+                    <li key={uuidv4()}><AniLink className="nav-link" fade to="/" key={uuidv4()}>{item.text}</AniLink></li>
                   )
                 })}
               </ul>
