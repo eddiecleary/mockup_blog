@@ -26,14 +26,14 @@ export const Footer = () => {
           <ul className="footer-nav-list left">
             {blogLinks.map((item)=>{
               return(
-                <li key={uuidv4()}><Anilink className="footer-nav-link" fade to={item.path} key={uuidv4()}><Dot color={item.color} />{item.text}</Anilink></li>
+                <li key={uuidv4()}><Anilink className="footer-nav-link" fade to="/" key={uuidv4()}><Dot color={item.color} />{item.text}</Anilink></li>
               )
             })}
           </ul>
           <ul className="footer-nav-list right">
             {links.map((item)=>{
               return(
-                <li key={uuidv4()}><Anilink className="footer-nav-link" fade to={item.path} key={uuidv4()}>{item.text}</Anilink></li>
+                <li key={uuidv4()}><Anilink className="footer-nav-link" fade to="/" key={uuidv4()}>{item.text}</Anilink></li>
               )
             })}
           </ul>

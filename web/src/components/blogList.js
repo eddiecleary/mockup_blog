@@ -1,6 +1,6 @@
 // import '../scss/components/_bloglist.scss'
 import React, {useEffect, useState } from 'react'
-import Anilink from 'gatsby-plugin-transition-link/Anilink'
+// import Anilink from 'gatsby-plugin-transition-link/Anilink'
 import {graphql, useStaticQuery} from 'gatsby'
 import BlogCard from './blogCard'
 import sanityClient from '../lib/client.js'

@@ -26,14 +26,14 @@ export const Header = () => {
               <ul className="nav-list">
                 {blogLinks.map((item)=>{
                   return(
-                    <li key={uuidv4()}><Anilink className="nav-link" fade to={item.path} key={uuidv4()}><Dot color={item.color} />{item.text}</Anilink></li>
+                    <li key={uuidv4()}><Anilink className="nav-link" fade to="/" key={uuidv4()}><Dot color={item.color} />{item.text}</Anilink></li>
                   )
                 })}
               </ul>
               <ul className="nav-list">
               {links.map((item)=>{
                   return(
-                    <li key={uuidv4()}><Anilink className="nav-link" fade to={item.path} key={uuidv4()}>{item.text}</Anilink></li>
+                    <li key={uuidv4()}><Anilink className="nav-link" fade to="/" key={uuidv4()}>{item.text}</Anilink></li>
                   )
                 })}
               </ul>
