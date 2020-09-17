@@ -1,18 +1,16 @@
 import React from 'react'
-import Navbar from './navbar'
+import Header from './header'
 import Footer from './footer'
-import '../scss/global.scss'
-import '../scss/layout.scss'
+import { GlobalStyles } from './global-styles'
 
 const Layout = ({children}) => {
   return (
-    <div className="layout">
-      <Navbar />
-        <main>
-          {children}
-        </main>
+    <>
+      <GlobalStyles />
+      <Header />
+        {children}
       <Footer />
-    </div>
+    </>
   )
 }
 

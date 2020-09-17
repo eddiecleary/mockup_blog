@@ -18,9 +18,21 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-transition-link',
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Varela Round`,
+          },
+          {
+            family: `Lora`
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -35,12 +47,6 @@ module.exports = {
       options: {
         name: `src`,
         path: `${__dirname}/src/`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/lib/typography`,
       },
     },
   ]

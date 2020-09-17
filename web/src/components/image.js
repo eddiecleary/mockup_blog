@@ -4,13 +4,13 @@ import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 import React, { useState } from 'react'
 
 const sanityConfig = {
-  projectId: "ah5svfqq",
+  projectId: "iejd2c9e",
   dataset: 'production'
 }
 
 export const Image = ({ imageId, className, width, alt, src }) => {
   const [loaded, setLoaded] = useState(false)
-  letfluidProps
+  let fluidProps
 
   if (imageId) {
     fluidProps = getFluidGatsbyImage(imageId, { maxWidth: width || 2400 }, sanityConfig)
@@ -34,3 +34,5 @@ export const Image = ({ imageId, className, width, alt, src }) => {
     </div>
   )
 }
+
+export default Image

@@ -1,59 +1,56 @@
-// import React from 'react'
-// import {graphql, useStaticQuery} from 'gatsby'
-// import BlogCard from './blogCard'
-// import '../scss/bloglist.scss'
+// import '../scss/components/_bloglist.scss'
+import React, {useEffect, useState } from 'react'
+import Anilink from 'gatsby-plugin-transition-link/Anilink'
+import {graphql, useStaticQuery} from 'gatsby'
+import BlogCard from './blogCard'
+import sanityClient from '../lib/client.js'
+import styled from 'styled-components'
 
 
-// export const BlogList = ({featured}) => {
-//   const data = useStaticQuery(query);
-//   const featuredPost = data.featuredPosts.edges[0].node;
+export const BlogList = () => {
+  const [allPostsData, setAllPosts] = useState(null);
 
-//   const items = [];
+  useEffect(() => {
+    sanityClient.fetch(
+      `*[_type == "post"]|order(publishedAt) {
+        title,
+        publishedAt,
+        mainImage,
+        excerpt,
+        "author": authors[0].author->{name},
+        slug,
+        "category": categories[0]->{title},
+        "alt": mainImage.alt
+      }[0...3]
+      `
+    )
+    .then((data) => setAllPosts(data))
+    .catch(console.error);
+  }, []);
 
-//   if (featured === true) {
-//     let featuredPosts = data.featuredPosts.edges;
-    
-//     featuredPosts.map((post)=>{
-//       items.push(
-//         <BlogCard title={post.node.title} image={post.node.mainImage.asset.fluid} published={post.node.publishedAt} author={post.node.authors[0].author.name} category={post.node.categories[0].title} description={post.node._rawExcerpt} />
-//       )
-//       return items
-//     })
-//   } 
+  return (
+    <StyledBlogList>
+      {allPostsData && 
+        allPostsData.map((post, index)=>(
+          <BlogCard 
+            title={post.title} 
+            publishedAt={post.publishedAt} 
+            excerpt={post.excerpt}
+            author={post.author.name}
+            category={post.category.title} 
+            imageId={post.mainImage.asset._ref}
+            alt={post.mainImage.alt}
+            key={index}
+          />
+        ))
+      }
+    </StyledBlogList>
+  )
+}
 
-//   return (
-//     <ul className="bloglist">
-//       {items}
-//     </ul>
+const StyledBlogList = styled.ul`
+  margin: 0 auto;
+  padding: 0;
+`
 
-//   )
-// }
-
-// export const query = graphql`
-//   query {
-//     featuredPosts: allSanityPost(filter: {featured: {eq: true}} limit: 3){
-//       edges {
-//         node {
-//           title
-//           featured
-//           authors{
-//             author {
-//               name
-//             }
-//           }
-//           publishedAt
-//           categories{
-//             title
-//           }
-//           mainImage{
-//             asset{              
-//             }
-//           }
-//           _rawExcerpt
-//         }
-//       }
-//     }
-//   }
-// `
-
-// export default BlogList
+export default BlogList

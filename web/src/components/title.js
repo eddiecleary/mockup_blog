@@ -1,6 +1,6 @@
+// import '../scss/components/_title.scss'
 import React from 'react'
-import styled from 'styled-components'
-import '../scss/title.scss'
+import styled, { keyframes, css } from 'styled-components'
 
 export const Title = ({title,subtitle,headingLevel,color,animated}) => {
 
@@ -25,17 +25,42 @@ export const Title = ({title,subtitle,headingLevel,color,animated}) => {
   )
 }
 
+const grow = keyframes`
+  0% {
+    transform: scaleX(0%);
+  }
+
+  12%{
+    transform: scaleX(0%);
+  }
+
+  22%{
+    transform: scaleX(100%);
+  }
+
+  85% {
+    transform: scaleX(100%);
+  }
+
+  95% {
+    transform: scaleX(0%);
+  }
+
+  100% {
+    transform: scaleX(0%);
+  }
+`
+
 const Underline = styled.span`
   width: 100%;
   position: absolute;
   height: 5px;
   background-color: var(--secondary-transparent);
   left: 0;
-  bottom: 0;
+  bottom: -2px;
   border-radius: 8px;
   transform: scaleX(100%);
-  animation: ${props => props.animated ? 'grow 9s ease infinite' : 'none' };
+  animation: ${props => props.animated ? css`${grow} 9s ease infinite;` : ''};
 `
-
 
 export default Title
