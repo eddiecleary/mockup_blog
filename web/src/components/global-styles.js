@@ -41,22 +41,21 @@ export const GlobalStyles = createGlobalStyle`
     --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
     --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
     --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
-    --line-height-multiplier: 1.5;
+    --line-height-multiplier: 1.3;
     --body-line-height: calc((var(--text-scale-ratio)) * var(--line-height-multiplier));
     --heading-line-height: calc((var(--text-scale-ratio) * 0.8) * var(--line-height-multiplier));
-    --break-sm: (min-width: 480px);
-    --break-md: (min-width: 768px);
-    --break-lg: (min-width: 992px);
-    --break-xl: (min-width: 1200px);
   }
 
   /* Global 
   ----------------------------------------------- */
 
+  *{
+    box-sizing: border-box;
+  }
+
   body {
     color: var(--black);
     background: var(--white);
-    font-size: var(--text-md);
   }
 
   a {
@@ -72,6 +71,19 @@ export const GlobalStyles = createGlobalStyle`
     font-size: var(--text-base-size);
     font-family: 'Lora', serif;
     line-height: var(--body-line-height);
+
+    
+    @media (min-width: 480px) {
+      --text-base-size: 1.15em;
+    }
+    
+    @media (min-width: 768px) {
+      --text-base-size: 1.2em;
+    }
+    
+    @media (min-width: 992px) {
+      --text-base-size: 1.3em;
+    }
   }
 
   h1,
@@ -91,7 +103,36 @@ export const GlobalStyles = createGlobalStyle`
   .container {
     margin: 0 auto;
     padding: 0 14px;
-    max-width: 450px;
+    width: 90%;
+    max-width: 90%;
+    position: relative;
+
+    @media only screen and (min-width: 480px) {
+      max-width: 450px;
+      padding: 0;
+    }
+
+    @media only screen and (min-width: 768px) {
+      max-width: 550px;
+
+      &.wide {
+        max-width: 680px;
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+      max-width: 1000px;
+
+      &.wide {
+        max-width: 1100px;
+      }
+    }
+
+    &.fw {
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+    }
   }
 
 
@@ -109,6 +150,7 @@ export const GlobalStyles = createGlobalStyle`
     text-shadow: none;
     letter-spacing: var(--mainSpacing);
     font-size: var(--text-lg);
+    display: inline-block;
   }
   .btn:hover {
     background-color: var(--secondary);

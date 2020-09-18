@@ -17,7 +17,6 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 // import './styles/index.scss'
 import styled, { keyframes } from 'styled-components'
 
-
 export default function Home({data}) {
   let animationContainer = createRef();
   let animationContainer2 = createRef();
@@ -59,16 +58,16 @@ export default function Home({data}) {
               <Title className="intro-sub-title" title="all creatives" headingLevel={2}/>
             </div>
             <p className="intro-p">Rediscover your imagination and ignite your creativity. Think Outside The Box  helps creatives of all types break out of boring templates and start creating designs using their own creative imagination.</p>
-          </div>
-          <div className="intro-circle-wrap">
-            <SpinCircle text="designers" image={data.spin1.childImageSharp.fixed}  BGimage={data.spin1_bg.childImageSharp.fixed}  />
-            <SpinCircle text="developers" image={data.spin2.childImageSharp.fixed} BGimage={data.spin2_bg.childImageSharp.fixed} />
-            <SpinCircle text="artists" image={data.spin3.childImageSharp.fixed} BGimage={data.spin3_bg.childImageSharp.fixed}/>
+            <div className="intro-circle-wrap">
+              <SpinCircle text="designers" image={data.spin1.childImageSharp.fixed}  BGimage={data.spin1_bg.childImageSharp.fixed}  />
+              <SpinCircle text="developers" image={data.spin2.childImageSharp.fixed} BGimage={data.spin2_bg.childImageSharp.fixed} />
+              <SpinCircle text="artists" image={data.spin3.childImageSharp.fixed} BGimage={data.spin3_bg.childImageSharp.fixed}/>
+            </div>
           </div>
         </section>
         
         <section className="testimonials-section">
-          <div className="container">
+          <div className="container wide">
             <div className="animation-container2 testimonials-animation" ref={animationContainer2}>       
             </div>
             <h3 className="testimonials-title">what readers are saying</h3>
@@ -78,28 +77,34 @@ export default function Home({data}) {
 
         <section className="cta-section">
           <div className="container">
-            <Img className="cta-img-book" fluid={data.ctaImg1.childImageSharp.fluid} />
-            <Img className="cta-img-phone" fluid={data.ctaImg2.childImageSharp.fluid} />
+            <div className="cta-img-wrap">
+              <Img className="cta-img-book" fluid={data.ctaImg1.childImageSharp.fluid} />
+              <Img className="cta-img-phone" fluid={data.ctaImg2.childImageSharp.fluid} />
+            </div>
             <a href="/" className="btn">buy now</a>
           </div>
         </section>
 
         <section className="blog-intro-section">
           <div className="container">
-            <Img className="blog-intro-profile-img" fluid={data.amelia.childImageSharp.fluid} />
-            <div className="blog-intro-title-wrap-top">
-              <h3 className="blog-intro-title-1">Hello!</h3>
-              <svg width="57" height="57" className="blog-intro-wave-svg" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.53381 15.1485C9.99884 14.1246 12.2073 14.3209 13.5227 15.4072L12.014 13.2144C10.7999 11.4828 11.2348 9.60946 12.9679 8.3938C14.701 7.18282 19.6119 10.4386 19.6119 10.4386C18.3869 8.68992 18.616 6.47368 20.3647 5.24711C22.1134 4.02521 24.526 4.44758 25.751 6.19938L41.991 29.1411L39.9213 49.2073L22.648 42.9077L7.58154 20.5691C6.34562 18.8095 6.77266 16.3829 8.53381 15.1485Z" fill="#EF9645"/>
-                <path d="M5.15812 27.9114C5.15812 27.9114 3.39385 25.3398 5.967 23.5771C8.53703 21.8144 10.2997 24.3844 10.2997 24.3844L18.4836 36.3197C18.7657 35.8491 19.0743 35.3846 19.4188 34.9264L8.06012 18.3638C8.06012 18.3638 6.29741 15.7938 8.869 14.031C11.439 12.2683 13.2017 14.8384 13.2017 14.8384L23.8855 30.4191C24.283 30.0949 24.6897 29.7692 25.109 29.4497L12.7233 11.3846C12.7233 11.3846 10.9606 8.81461 13.5322 7.0519C16.1022 5.28919 17.8649 7.85923 17.8649 7.85923L30.2506 25.9212C30.7057 25.6422 31.1561 25.4006 31.6081 25.145L20.0313 8.26289C20.0313 8.26289 18.2686 5.69285 20.8386 3.93015C23.4086 2.16744 25.1713 4.73747 25.1713 4.73747L37.4121 22.589L39.273 25.304C31.5614 30.5937 30.8273 40.5449 35.2333 46.9708C36.1138 48.2566 37.3996 47.376 37.3996 47.376C32.1115 39.6628 33.7262 30.9958 41.4394 25.7076L39.1655 14.3272C39.1655 14.3272 38.3161 11.3285 41.3131 10.4776C44.3118 9.62817 45.1627 12.6268 45.1627 12.6268L47.7889 20.4257C48.83 23.5179 49.9381 26.5991 51.4047 29.5136C55.5457 37.7427 53.0723 47.9698 45.264 53.3265C36.7466 59.1664 25.1028 56.9953 19.2614 48.4795L5.15812 27.9114Z" fill="#FFDC5D"/>
-                <path d="M19.6604 50.8313C13.4262 50.8313 7.1266 44.5317 7.1266 38.2975C7.1266 37.4357 6.49539 36.739 5.63352 36.739C4.77165 36.739 4.00952 37.4357 4.00952 38.2975C4.00952 47.6488 10.3091 53.9484 19.6604 53.9484C20.5223 53.9484 21.2189 53.1863 21.2189 52.3244C21.2189 51.4625 20.5223 50.8313 19.6604 50.8313Z" fill="#5DADEC"/>
-                <path d="M11.8678 53.8829C7.19217 53.8829 4.07509 50.7658 4.07509 46.0902C4.07509 45.2283 3.37842 44.5317 2.51655 44.5317C1.65468 44.5317 0.958008 45.2283 0.958008 46.0902C0.958008 52.3244 5.63363 57 11.8678 57C12.7297 57 13.4263 56.3033 13.4263 55.4415C13.4263 54.5796 12.7297 53.8829 11.8678 53.8829ZM38.363 4.00963C37.5027 4.00963 36.8044 4.70785 36.8044 5.56817C36.8044 6.42848 37.5027 7.12671 38.363 7.12671C44.5971 7.12671 50.8313 12.7203 50.8313 19.595C50.8313 20.4553 51.5295 21.1536 52.3898 21.1536C53.2502 21.1536 53.9484 20.4553 53.9484 19.595C53.9484 11.0012 47.7142 4.00963 38.363 4.00963Z" fill="#5DADEC"/>
-                <path d="M46.1557 0.958008C45.2954 0.958008 44.5972 1.59078 44.5972 2.45109C44.5972 3.3114 45.2954 4.07509 46.1557 4.07509C50.8313 4.07509 53.883 7.54284 53.883 11.8023C53.883 12.6626 54.6451 13.3609 55.507 13.3609C56.3688 13.3609 57 12.6626 57 11.8023C57 5.82221 52.3899 0.958008 46.1557 0.958008Z" fill="#5DADEC"/>
-              </svg>
+            <div className="blog-intro-wrap-1">
+              <Img className="blog-intro-profile-img" fluid={data.amelia.childImageSharp.fluid} />
+              <div className="blog-intro-title-wrap-top">
+                <h3 className="blog-intro-title-1">Hello!</h3>
+                <svg width="57" height="57" className="blog-intro-wave-svg" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.53381 15.1485C9.99884 14.1246 12.2073 14.3209 13.5227 15.4072L12.014 13.2144C10.7999 11.4828 11.2348 9.60946 12.9679 8.3938C14.701 7.18282 19.6119 10.4386 19.6119 10.4386C18.3869 8.68992 18.616 6.47368 20.3647 5.24711C22.1134 4.02521 24.526 4.44758 25.751 6.19938L41.991 29.1411L39.9213 49.2073L22.648 42.9077L7.58154 20.5691C6.34562 18.8095 6.77266 16.3829 8.53381 15.1485Z" fill="#EF9645"/>
+                  <path d="M5.15812 27.9114C5.15812 27.9114 3.39385 25.3398 5.967 23.5771C8.53703 21.8144 10.2997 24.3844 10.2997 24.3844L18.4836 36.3197C18.7657 35.8491 19.0743 35.3846 19.4188 34.9264L8.06012 18.3638C8.06012 18.3638 6.29741 15.7938 8.869 14.031C11.439 12.2683 13.2017 14.8384 13.2017 14.8384L23.8855 30.4191C24.283 30.0949 24.6897 29.7692 25.109 29.4497L12.7233 11.3846C12.7233 11.3846 10.9606 8.81461 13.5322 7.0519C16.1022 5.28919 17.8649 7.85923 17.8649 7.85923L30.2506 25.9212C30.7057 25.6422 31.1561 25.4006 31.6081 25.145L20.0313 8.26289C20.0313 8.26289 18.2686 5.69285 20.8386 3.93015C23.4086 2.16744 25.1713 4.73747 25.1713 4.73747L37.4121 22.589L39.273 25.304C31.5614 30.5937 30.8273 40.5449 35.2333 46.9708C36.1138 48.2566 37.3996 47.376 37.3996 47.376C32.1115 39.6628 33.7262 30.9958 41.4394 25.7076L39.1655 14.3272C39.1655 14.3272 38.3161 11.3285 41.3131 10.4776C44.3118 9.62817 45.1627 12.6268 45.1627 12.6268L47.7889 20.4257C48.83 23.5179 49.9381 26.5991 51.4047 29.5136C55.5457 37.7427 53.0723 47.9698 45.264 53.3265C36.7466 59.1664 25.1028 56.9953 19.2614 48.4795L5.15812 27.9114Z" fill="#FFDC5D"/>
+                  <path d="M19.6604 50.8313C13.4262 50.8313 7.1266 44.5317 7.1266 38.2975C7.1266 37.4357 6.49539 36.739 5.63352 36.739C4.77165 36.739 4.00952 37.4357 4.00952 38.2975C4.00952 47.6488 10.3091 53.9484 19.6604 53.9484C20.5223 53.9484 21.2189 53.1863 21.2189 52.3244C21.2189 51.4625 20.5223 50.8313 19.6604 50.8313Z" fill="#5DADEC"/>
+                  <path d="M11.8678 53.8829C7.19217 53.8829 4.07509 50.7658 4.07509 46.0902C4.07509 45.2283 3.37842 44.5317 2.51655 44.5317C1.65468 44.5317 0.958008 45.2283 0.958008 46.0902C0.958008 52.3244 5.63363 57 11.8678 57C12.7297 57 13.4263 56.3033 13.4263 55.4415C13.4263 54.5796 12.7297 53.8829 11.8678 53.8829ZM38.363 4.00963C37.5027 4.00963 36.8044 4.70785 36.8044 5.56817C36.8044 6.42848 37.5027 7.12671 38.363 7.12671C44.5971 7.12671 50.8313 12.7203 50.8313 19.595C50.8313 20.4553 51.5295 21.1536 52.3898 21.1536C53.2502 21.1536 53.9484 20.4553 53.9484 19.595C53.9484 11.0012 47.7142 4.00963 38.363 4.00963Z" fill="#5DADEC"/>
+                  <path d="M46.1557 0.958008C45.2954 0.958008 44.5972 1.59078 44.5972 2.45109C44.5972 3.3114 45.2954 4.07509 46.1557 4.07509C50.8313 4.07509 53.883 7.54284 53.883 11.8023C53.883 12.6626 54.6451 13.3609 55.507 13.3609C56.3688 13.3609 57 12.6626 57 11.8023C57 5.82221 52.3899 0.958008 46.1557 0.958008Z" fill="#5DADEC"/>
+                </svg>
+              </div>
             </div>
-            <div className="blog-intro-title-wrap-bottom">
-              <h3 className="blog-intro-title-2">i'm amelia pond</h3>
-              <h4 className="blog-intro-sub-title">creativity coach</h4>
+            <div className="blog-intro-wrap-2">
+              <div className="blog-intro-title-wrap-bottom">
+                <h3 className="blog-intro-title-2">i'm amelia pond</h3>
+                <h4 className="blog-intro-sub-title">creativity coach</h4>
+              </div>
             </div>
             <p className="blog-intro-p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
@@ -120,7 +125,7 @@ export default function Home({data}) {
         <section className="latest-blogs-section">
           <div className="container">
             <BlogList />
-            <AniLink className="btn btn-secondary latest-blogs-btn" fade to="/">view all posts</AniLink>
+            <AniLink className="btn btn-secondary latest-blogs-btn" fade to="/">view more posts</AniLink>
           </div>
         </section>
       
@@ -154,28 +159,28 @@ export const query = graphql`
     heroImage: file(relativePath:{eq:"images/homeHero.jpg"}){
       childImageSharp{
         fluid(quality:90,maxWidth:450){
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     ctaImg1: file(relativePath: {eq: "images/cta1.jpg"}){
       childImageSharp{
         fluid(quality:75,maxWidth:433){
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     ctaImg2: file(relativePath: {eq: "images/cta2.jpg"}){
       childImageSharp{
         fluid(quality:75,maxWidth:145){
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     amelia: file(relativePath: {eq: "images/amelia.jpg"}){
       childImageSharp{
         fluid(quality:75,maxWidth:275){
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
@@ -186,7 +191,7 @@ export const fragments = graphql`
   fragment spinImgFragment on File {
     childImageSharp {
       fixed(width: 180, height: 180) {
-        ...GatsbyImageSharpFixed
+        ...GatsbyImageSharpFixed_withWebp
       }
     }
   }
@@ -194,7 +199,7 @@ export const fragments = graphql`
   fragment spinBGFragment on File {
     childImageSharp {
       fixed(width: 200, height: 200) {
-        ...GatsbyImageSharpFixed
+        ...GatsbyImageSharpFixed_withWebp
       }
     }
   }
@@ -228,6 +233,10 @@ const StyledIndex = styled.main`
     text-align: center;
     margin-top: var(--space-xxxl);
 
+    @media (min-width: 992px) {
+      margin-top: 20rem;
+    }
+
     .intro-title {
       text-align: center;
       font-size: var(--text-xxl);
@@ -238,6 +247,14 @@ const StyledIndex = styled.main`
       align-items: center;
       justify-content: center;
       margin-top: var(--space-lg);
+
+      @media (min-width: 768px) {
+        margin-top: var(--space-xl);
+      }
+
+      @media (min-width: 992px) {
+        margin-top: var(--space-md);
+      }
 
       .title {
         position: relative;
@@ -250,16 +267,24 @@ const StyledIndex = styled.main`
       margin: 0;
       display: block;
       margin-right: var(--space-xs);
+
+      @media (min-width: 992px) {
+        width: 130px;
+      }
     }
 
     .intro-sub-title {
       margin-top: var(--space-lg);
+
     }
 
     .intro-p {
-      max-width: 320px;
       margin: 0 auto;
       margin-top: var(--space-md);
+
+      @media (min-width: 992px) {
+        max-width: 700px;
+      }
     }
 
     .intro-circle-wrap {
@@ -267,11 +292,32 @@ const StyledIndex = styled.main`
       flex-direction: column;
       align-items: center;
       margin-top: var(--space-lg);
+
+      @media(min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @media (min-width: 992px) {
+        justify-content: space-between;
+        margin-top: var(--space-xl);
+      }
     }
   }
 
   .testimonials-section {
-    margin-top: var(--space-xxl);
+    margin-top: var(--space-xl);
+
+    @media (min-width: 768px) {
+      margin-top: var(--space-lg);
+    }
+
+    @media (min-width: 992px) {
+      margin-top: var(--space-xxxl);
+    }
 
     .testimonials-animation {
       width: 120px;
@@ -285,6 +331,7 @@ const StyledIndex = styled.main`
       text-align: center;
       margin-top: var(--space-xs);
       margin-bottom: var(--space-lg);
+      font-size: var(--text-xl);
     } 
   }
 
@@ -292,65 +339,143 @@ const StyledIndex = styled.main`
     text-align: center;
     margin-top: var(--space-xxxl);
 
-    .cta-img-book {
-      width: 90%;
-      max-width: 320px;
-      margin: 0 auto;
-      margin-bottom: var(--space-xl);
-    }
+    .cta-img-wrap{
 
-    .cta-img-phone {
-      width: 32%;
-      max-width: 120px;
-      margin: 0 auto;
-      margin-bottom: var(--space-xl);
+      @media(min-width: 768px) {
+        display: flex;
+        transform: translateX(-8%);
+      }
+
+      @media (min-width: 992px) {
+        max-width: 700px;
+        margin: 0 auto;
+        transform: translateX(-10%);
+      }
+
+      .cta-img-book {
+        width: 90%;
+        max-width: 320px;
+        margin: 0 auto;
+        margin-bottom: var(--space-xl);
+      }
+
+      .cta-img-phone {
+        width: 32%;
+        max-width: 120px;
+        margin: 0 auto;
+        margin-bottom: var(--space-xl);
+      }
     }
 
     .btn {
+
+      @media (min-width: 768px){
+        margin-top: var(--space-lg);
+        display: inline-block;
+      }
     }
   }
 
   .blog-intro-section {
     margin-top: var(--space-xxxl);
 
-    .blog-intro-profile-img {
-      max-width: 200px;
-      margin: 0 auto;
+    @media (min-width: 992px) {
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: var(--space-xxl);
     }
 
-    .blog-intro-title-wrap-top {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .blog-intro-wrap-1 {
 
-      .blog-intro-title-1 {
-        margin-right: var(--space-xxs);
-        font-size: var(--text-xxxl);
+      @media (min-width: 768px) {
+        display: flex;
+        justify-content: center;
       }
 
-      .blog-intro-wave-svg {
-        animation: ${wave} 0.8s infinite cubic-bezier(0.55, 0.085, 0.68, 0.53);
-        width: 45px;
-        margin-bottom: var(--space-sm);
+      @media (min-width: 992px) {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .blog-intro-profile-img {
+        width: 200px;
+        margin: 0 auto;
+
+        @media (min-width: 768px) {
+          margin: 0;
+          margin-right: var(--space-md);  
+        } 
+
+        @media (min-width: 992px) {
+          position: relative;
+          top: var(--space-xxl);
+          width: 220px;
+        } 
+      }
+
+      .blog-intro-title-wrap-top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (min-width: 768px) {
+          margin-bottom: calc(-1 * var(--space-xxl));
+        }
+
+        @media (min-width: 992px) {
+          margin-bottom: var(--space-sm);
+          align-items: flex-end;
+        }
+
+        .blog-intro-title-1 {
+          margin-right: var(--space-xxs);
+          font-size: var(--text-xxxl);
+
+          @media (min-width: 992px) {
+            margin: 0;
+            margin-right: var(--space-xs);
+          }
+        }
+
+        .blog-intro-wave-svg {
+          animation: ${wave} 0.8s infinite cubic-bezier(0.55, 0.085, 0.68, 0.53);
+          width: 45px;
+          margin-bottom: var(--space-sm);
+        }
       }
     }
 
-    .blog-intro-title-wrap-bottom {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      
-      .blog-intro-title-2 {
-        margin: 0;
-        font-size: var(--text-xxl);
-      }
+    .blog-intro-wrap-2 {
 
-      .blog-intro-sub-title {
-        margin: 0;
-        letter-spacing: 3.5px;
-        color: grey;
-        margin-top: var(--space-xxxs);
-        font-size: var(--text-md);
+      .blog-intro-title-wrap-bottom {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        @media(min-width: 768px) {
+          margin-top: var(--space-xl);
+        }
+
+        @media(min-width: 992px) {
+          align-items: flex-start;
+          margin-top: 0;
+        }
+        
+        .blog-intro-title-2 {
+          margin: 0;
+          font-size: var(--text-xxl);
+        }
+
+        .blog-intro-sub-title {
+          margin: 0;
+          letter-spacing: 3.5px;
+          color: grey;
+          margin-top: var(--space-xxxs);
+          font-size: var(--text-md);
+        }
       }
     }
 
@@ -375,6 +500,10 @@ const StyledIndex = styled.main`
       margin-top: var(--space-lg);
       transform: rotate(-30deg);
 
+      @media (min-width: 992px) {
+        margin-top: var(--space-xxl);
+      }
+
       .blog-intro-arrow-svg {
         width: 100%;
       }
@@ -389,6 +518,11 @@ const StyledIndex = styled.main`
       margin: 0 auto;
       margin-top: var(--space-xl);
       text-align: center;
+      max-width: 350px;
+
+      @media (min-width: 992px) {
+        margin-top: var(--space-sm);
+      }
     }
   }
 `

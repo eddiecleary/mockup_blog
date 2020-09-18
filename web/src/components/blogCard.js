@@ -37,16 +37,23 @@ const StyledBlogCard = styled.article`
   border-radius: 20px;
   overflow: hidden;
   margin: var(--space-xl) 0;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
 
-  :last-of-type {
-    margin-bottom: 0;
+  @media (min-width: 992px) {
+    flex-basis: 45%;
   }
-
+  
   .blog-card-img-wrap {
     position: relative;
 
     .blog-card-img {
       height: 190px;
+
+      @media(min-width: 768px) {
+        height: 220px;
+      }
 
       .gatsby-image-wrapper {
         height: 100%;

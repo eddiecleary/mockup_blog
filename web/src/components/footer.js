@@ -63,11 +63,21 @@ const StyledFooter = styled.footer`
 
   .footer-nav-wrap {
 
+    @media (min-width: 992px) {
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
+    }
+
     .footer-logo-wrap {
       width: 180px;
       display: block;
       margin: 0 auto;
       margin-bottom: var(--space-lg);
+
+      @media (min-width: 992px) {
+        margin: 0;
+      }
       
       .footer-logo {
         margin: 0;
@@ -83,10 +93,21 @@ const StyledFooter = styled.footer`
 
       &.left {
 
+        @media (min-width: 992px) {
+
+          .footer-nav-link {
+            margin-left: var(--space-lg);
+          } 
+        } 
       }
 
       &.right {
 
+        @media (min-width: 992px) {
+          .footer-nav-link {
+            margin-left: var(--space-md);
+          }  
+        }
       }
 
       .footer-nav-link {
@@ -95,6 +116,11 @@ const StyledFooter = styled.footer`
         text-transform: capitalize;
         padding: 0 var(--space-md);
         font-size: var(--text-lg);
+
+        @media (min-width: 992px) {
+           padding: 0;
+           margin-left: var(--space-md);
+        }
       }
     }
   }
@@ -120,6 +146,10 @@ const StyledFooter = styled.footer`
     display: block;
     margin-top: var(--space-xl);
     font-size: var(--text-sm);
+
+    @media (min-width: 992px) {
+      margin-top: var(--space-lg);  
+    }
   }
 `
 

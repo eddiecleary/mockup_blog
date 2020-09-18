@@ -40,6 +40,14 @@ const CircleWrap = styled.div`
   height: 250px;
   width: 250px;
   margin-bottom: var(--space-xl);
+  
+  @media(min-width: 768px) {
+    flex-basis: 45%;
+  }
+  
+  @media(min-width: 992px) {
+    flex-basis: 33.3%;
+  }
 
   .circle-front {
     position: absolute;

@@ -21,6 +21,11 @@ export const Newsletter = () => {
 const StyledNewsletter = styled.div`
   margin: 0 auto;
   margin-bottom: var(--space-xxl);
+  max-width: 450px;
+
+  @media (min-width: 768px) {
+    margin-bottom: var(--space-xxxl);
+  }
 
   .newsletter-title {
     font-size: var(--text-xl);

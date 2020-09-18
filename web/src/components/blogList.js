@@ -36,7 +36,7 @@ export const BlogList = () => {
 
 export const getRecentPosts = graphql`
   query {
-    recentPosts: allSanityPost(sort: {fields: [publishedAt], order: ASC}, filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}, limit: 3) {
+    recentPosts: allSanityPost(sort: {fields: [publishedAt], order: ASC}, filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}, limit: 4) {
       edges {
         node {
           id
@@ -72,6 +72,12 @@ export const getRecentPosts = graphql`
 const StyledBlogList = styled.ul`
   margin: 0 auto;
   padding: 0;
+
+  @media (min-width: 992px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 `
 
 export default BlogList

@@ -16,21 +16,21 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <div className="container">
+      <div className="container fw">
         <div className="header-wrap">
           <AniLink className="logo-wrap" fade to="/">
             <img className="logo" src={logo} alt="Amelia Pond Logo - cursive writing of her name"/>
           </AniLink>
           <nav className="nav" role="navigation">
             <div className={isOpen?`nav-wrap expanded`:`nav-wrap`}>
-              <ul className="nav-list">
+              <ul className="nav-list left">
                 {blogLinks.map((item)=>{
                   return(
                     <li key={uuidv4()}><AniLink className="nav-link" fade to="/" key={uuidv4()}><Dot color={item.color} />{item.text}</AniLink></li>
                   )
                 })}
               </ul>
-              <ul className="nav-list">
+              <ul className="nav-list right">
               {links.map((item)=>{
                   return(
                     <li key={uuidv4()}><AniLink className="nav-link" fade to="/" key={uuidv4()}>{item.text}</AniLink></li>
@@ -54,18 +54,34 @@ const StyledHeader = styled.div`
   margin-bottom: 3px;
   background-color: var(--lazy);
 
+  @media (min-width: 992px) {
+    border-bottom: 3px solid var(--travel);
+  }
+
   .header-wrap {
     display: flex;
     z-index: 2;
     padding: 1rem 0;
+    max-width: 90%;
+    margin: 0 auto;
+    height: var(--space-xxl);
+
+    @media (min-width: 992px) {
+      justify-content: space-between;
+      max-width: 1300px;
+    }
   }
 
   .logo-wrap {
     width: 150px;
+    position: relative;
   }
 
   .logo {
     margin-bottom: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .nav-wrap {
@@ -82,9 +98,30 @@ const StyledHeader = styled.div`
     border-bottom: 3px solid var(--travel);
     background-color: var(--white);
 
+    @media (min-width: 992px) {
+      position: static;
+      background-color: transparent;
+      height: auto;
+      border: 0;
+      display: flex;
+    }
+
     &.expanded {
-      height: 330px;
+      height: 310px;
       border-bottom: 3px solid var(--travel);
+
+      @media (min-width: 480px) {
+        height: 360px;
+      }
+
+      @media (min-width: 768px) {
+        height: 375px;
+      }
+
+      @media (min-width: 992px) {
+        height: auto;
+        border-bottom: none;
+      }
     }
   }
 
@@ -95,12 +132,29 @@ const StyledHeader = styled.div`
     flex-direction: column;
     align-items: center;
 
+    @media (min-width: 992px) {
+      flex-direction: row;
+    }
+
     &.left {
-      
+
+      @media (min-width: 992px) {
+
+        .nav-link {
+          margin-left: var(--space-lg);
+        }  
+      }
+
     }
 
     &.right {
       
+      @media (min-width: 992px) {
+        
+        .nav-link {
+          margin-left: var(--space-md);
+        }
+      }
     }
   }
 
@@ -114,11 +168,15 @@ const StyledHeader = styled.div`
 
   .nav-burger {
     position: absolute;
-    right: 1.5rem;
+    right: 5%;
     top: 1.3rem;
     background: none;
     border: none;
     outline: none;
+
+    @media (min-width: 992px) {
+      display: none;
+    }
   }
 `
 
