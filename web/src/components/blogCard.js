@@ -7,9 +7,26 @@ import styled from 'styled-components'
 import cn from 'classnames'
 import {getFluidGatsbyImage, getFixedGatsbyImage} from 'gatsby-source-sanity'
 
-export const BlogCard = ({imageId,title,author,publishedAt,category,excerpt,alt,src}) => {
+export const BlogCard = ({imageId,title,author,publishedAt,category,excerpt,alt}) => {
+
+console.log(category);
+
+let color;
+
+switch (category.toString().toLowerCase()) {
+  case 'lifestyle':
+    color = 'rgba(74, 156, 71, 0.55)';
+    break;
+  case 'food':
+    color = 'rgba(231, 99, 86, 0.55)';
+    break;
+  case 'travel':
+    color = 'rgba(25, 132, 181, 0.55)';
+    break;
+}
+
   return (
-    <StyledBlogCard>
+    <StyledBlogCard pewdiepie={color}>
       <div className="blog-card-img-wrap">
         <Img fluid={imageId} className={"blog-card-img"} alt={alt} width={500}/>
         <div className={`blog-card-category ${category.toString().toLowerCase()}`}>{category}</div>
@@ -40,6 +57,10 @@ const StyledBlogCard = styled.article`
   max-width: 450px;
   margin-left: auto;
   margin-right: auto;
+
+  &:hover {
+    box-shadow: 2px 2px 8px ${props=>props.pewdiepie};
+  }
 
   @media (min-width: 992px) {
     flex-basis: 45%;
@@ -114,8 +135,6 @@ const StyledBlogCard = styled.article`
       }
     }
   }
-
-
 `
 
 export default BlogCard

@@ -12,7 +12,6 @@ export const BlogList = () => {
   const {recentPosts} = useStaticQuery(getRecentPosts)
   const postNodes = recentPosts && mapEdgesToNodes(recentPosts);
 
-
   return (
 
     <StyledBlogList>
