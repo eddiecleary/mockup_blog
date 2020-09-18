@@ -166,7 +166,7 @@ const StyledTestimonials = styled.ul`
       }
 
       span {
-        font-size: var(--text-sm);
+        font-size: var(--text-md);
         letter-spacing: 1.2px;
       }
     }
