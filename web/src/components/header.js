@@ -62,9 +62,9 @@ const StyledHeader = styled.div`
     display: flex;
     z-index: 2;
     padding: 1rem 0;
-    max-width: 90%;
     margin: 0 auto;
     height: var(--space-xxl);
+    width: 90%;
 
     @media (min-width: 992px) {
       justify-content: space-between;

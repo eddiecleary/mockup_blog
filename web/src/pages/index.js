@@ -16,7 +16,7 @@ import BlogList from '../components/blogList'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import styled, { keyframes } from 'styled-components'
 
-export default function Home({data}) {
+export function Home({data}) {
   let animationContainer = createRef();
   let animationContainer2 = createRef();
 
@@ -53,7 +53,7 @@ export default function Home({data}) {
             <h2 className="intro-title">who is this book for?</h2>
             <div className="intro-sub-title-wrap">
               <div className="intro-animation animation-container" ref={animationContainer}></div>
-              <Title className="intro-sub-title" title="all creatives" headingLevel={2}/>     
+              {/* <Title className="intro-sub-title" title="all creatives" headingLevel={2}/>      */}
             </div>
             <p className="intro-p">Rediscover your imagination and ignite your creativity. Think Outside The Box  helps creatives of all types break out of boring templates and start creating designs using their own creative imagination.</p>
             <div className="intro-circle-wrap">
@@ -102,8 +102,8 @@ export default function Home({data}) {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
             </p>
             <div className="blog-intro-btn-wrap">
-              <a href="/" className="btn btn-secondary">About Me</a>
-              <a href="/" className="btn btn-secondary">Contact</a>
+              <AniLink className="btn btn-secondary" fade to="/about">About Me</AniLink>
+              <AniLink className="btn btn-secondary" fade to="/contact">Contact</AniLink>
             </div>
             <div className="blog-intro-arrow-wrap">
               <ArrowSvg className="blog-intro-arrow-svg"/>
@@ -515,3 +515,5 @@ const StyledIndex = styled.main`
     }
   }
 `
+
+export default Home

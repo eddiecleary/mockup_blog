@@ -1,10 +1,76 @@
-// const {isFuture} = require('date-fns')
-// /**
-//  * Implement Gatsby's Node APIs in this file.
-//  *
-//  * See: https://www.gatsbyjs.org/docs/node-apis/
-//  */
+// Create Blog Category Pages
+// async function createBlogCategoryPages (graphql, actions) {
+//   const {createPage} = actions
+//   const result = await graphql(`
+    
+//   `);
 
+//   console.log(result);
+
+//   if (result.errors) throw result.errors
+
+//   const categoryEdges = (result.data.allSanityCategory || {}).edges || []
+  
+//   categoryEdges.forEach((edge, index) => {
+//     const {id, title} = edge.node;
+//     const path = `/blog/${title}/`;
+
+//     createPage({
+//       path,
+//       component: require.resolve('./src/templates/stuff.js'),
+//       context: {
+//         id,
+//         title,
+//         random: 'test'
+//       }
+//     })
+//   });
+// }
+
+const path = require('path');
+
+// ----------
+exports.createPages = async function ({ actions, graphql, reporter }) {
+  const { data } = await graphql(`
+    query{
+      allSanityCategory {
+        edges {
+          node {
+            id
+            title
+          }
+        }
+      }
+    }
+  `)
+  
+  const blogCategoryTemplate = path.resolve('./src/templates/blogCategory.js')
+  const test = [0,1,2];
+
+  if (data.errors) {
+    reporter.panicOnBuild('Error while running GraphQL query.')
+    return
+  }
+
+  console.log(data);
+  data.allSanityCategory.edges.forEach(edge => {
+    const {title} = edge.node;
+    actions.createPage({
+      path: `/blog/${title.toLowerCase()}/`,
+      component: blogCategoryTemplate,
+      context: { id: title},
+    })
+  })
+}
+
+// ------------------
+
+// Create all pages
+// exports.createPages = async ({graphql, actions}) => {
+//   await createBlogCategoryPages(graphql, actions)
+// }
+
+// Force newer react-dom hot loader to be used during development
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage.startsWith("develop")) {
     actions.setWebpackConfig({
@@ -16,48 +82,3 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
     })
   }
 }
-
-// const {format} = require('date-fns')
-
-// async function createBlogPostPages (graphql, actions) {
-//   const {createPage} = actions
-//   const result = await graphql(`
-//     {
-//       allSanityPost(
-//         filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-//       ) {
-//         edges {
-//           node {
-//             id
-//             publishedAt
-//             slug {
-//               current
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `)
-
-//   if (result.errors) throw result.errors
-
-//   const postEdges = (result.data.allSanityPost || {}).edges || []
-
-//   postEdges
-//     .filter(edge => !isFuture(edge.node.publishedAt))
-//     .forEach((edge, index) => {
-//       const {id, slug = {}, publishedAt} = edge.node
-//       const dateSegment = format(publishedAt, 'YYYY/MM')
-//       const path = `/blog/${dateSegment}/${slug.current}/`
-
-//       createPage({
-//         path,
-//         component: require.resolve('./src/templates/blog-post.js'),
-//         context: {id}
-//       })
-//     })
-// }
-
-// exports.createPages = async ({graphql, actions}) => {
-//   await createBlogPostPages(graphql, actions)
-// }

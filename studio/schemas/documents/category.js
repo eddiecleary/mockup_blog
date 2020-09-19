@@ -12,6 +12,11 @@ export default {
       name: 'description',
       type: 'text',
       title: 'Description'
+    },
+    {
+      name: 'categoryImage',
+      type: 'mainImage',
+      title: 'Category Image',
     }
   ]
 }

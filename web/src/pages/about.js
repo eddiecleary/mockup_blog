@@ -1,11 +1,12 @@
 import React from "react"
 import Layout from '../components/layout'
 import Hero from '../components/hero'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import EmojiSvg from '../images/svg/emojismile.svg'
 
-export const about = ({data}) => {
+export const about = ({ data }) => {
   return (
     <Layout>
       <StyledAbout>
@@ -55,7 +56,7 @@ const StyledAbout = styled.main`
     margin-top: var(--space-xxxl);
 
     @media (min-width: 992px) {
-      margin-top: 15rem;
+      margin-top: 18rem;
     }
 
     .about-item {

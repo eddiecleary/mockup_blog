@@ -127,9 +127,10 @@ export const GlobalStyles = createGlobalStyle`
         max-width: 1100px;
       }
     }
-
+    
     &.fw {
       width: 100%;
+      max-width: 100%;
       padding: 0;
     }
   }

@@ -25,6 +25,10 @@ export const Title = ({title,subtitle,headingLevel,color,animated}) => {
   )
 }
 
+Title.defaultProps = {
+  color: `var(--secondary-transparent)`
+}
+
 const grow = keyframes`
   0% {
     transform: scaleX(0%);
@@ -55,7 +59,7 @@ const Underline = styled.span`
   width: 100%;
   position: absolute;
   height: 5px;
-  background-color: var(--secondary-transparent);
+  background-color: ${props => props.color};
   left: 0;
   bottom: -2px;
   border-radius: 8px;
