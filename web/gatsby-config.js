@@ -3,6 +3,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'development'}`
 })
 
+const path = require('path');
+
 const clientConfig = require('./client-config')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -20,6 +22,14 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-transition-link',
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: [path.resolve(__dirname, 'src/images/svg/')]
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {

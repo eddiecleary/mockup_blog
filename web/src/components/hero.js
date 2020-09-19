@@ -1,10 +1,9 @@
-// import '../scss/components/_hero.scss'
 import React from 'react'
 import Img from 'gatsby-image'
 import Title from './title'
 import styled, { keyframes } from 'styled-components'
 
-export const Hero = ({img,altImgText,icon,title,subtitle,description,btnText}) => {
+export const Hero = ({img,altImgText,Icon,title,subtitle,description,btnText}) => {
   return (
     <StyledHero>
       <div className="container">
@@ -12,10 +11,7 @@ export const Hero = ({img,altImgText,icon,title,subtitle,description,btnText}) =
           <Img className="hero-img" fluid={img} alt={altImgText}/>
           <div className="hero-text-wrap">
             <div className="hero-title-wrap">
-              <svg className="hero-icon"  width="34" height="36" version="1.1" viewBox="0 0 34 36" xmlns="http://www.w3.org/2000/svg">
-                <path d="m34 18.958c0-2.062-0.367-4.039-1.04-5.868-0.46 5.389-3.333 8.157-6.335 6.868-2.812-1.208-0.917-5.917-0.777-8.164 0.236-3.809-0.012-8.169-6.931-11.794 2.875 5.5 0.333 8.917-2.333 9.125-2.958 0.231-5.667-2.542-4.667-7.042-3.238 2.386-3.332 6.402-2.333 9 1.042 2.708-0.042 4.958-2.583 5.208-2.84 0.28-4.418-3.041-2.963-8.333-2.518 2.965-4.038 6.805-4.038 11 0 9.389 7.611 17 17 17s17-7.611 17-17z" fill="#f4900c" opacity=".85638"/>
-                <path d="m27.394 23.957c0.148 3.084-2.561 4.293-4.019 3.709-2.106-0.843-1.541-2.291-2.083-5.291s-2.625-5.083-5.708-6c2.25 6.333-1.247 8.667-3.08 9.084-1.872 0.426-3.753-1e-3 -3.968-4.007-2.184 2.174-3.536 5.182-3.536 8.506 0 0.368 0.023 0.73 0.055 1.09 3.07 3.034 7.287 4.91 11.945 4.91s8.875-1.876 11.945-4.91c0.032-0.36 0.055-0.722 0.055-1.09 0-2.187-0.584-4.236-1.606-6.001z" fill="#FFCC4D"/>
-              </svg>
+              <Icon className="hero-icon"/>
               <Title title={title} subtitle={subtitle} animated="true"/>
             </div>
             <div className="hero-p-wrap">
@@ -88,6 +84,7 @@ const StyledHero = styled.section`
 
     .hero-img {
       max-width: 250px;
+      max-height: 550px;
       margin: 0 auto;
       margin-top: var(--space-lg);
       width: 100%;

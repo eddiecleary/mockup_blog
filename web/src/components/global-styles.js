@@ -130,7 +130,6 @@ export const GlobalStyles = createGlobalStyle`
 
     &.fw {
       width: 100%;
-      max-width: 100%;
       padding: 0;
     }
   }

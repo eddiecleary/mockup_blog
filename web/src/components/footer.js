@@ -5,7 +5,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Dot from './dot.js'
 import links from '../constants/links'
 import {blogLinks} from '../constants/links'
-import logo from '../images/logo.svg'
+import LogoSvg from '../images/svg/logo.svg'
 import {v4 as uuidv4} from 'uuid'
 import Newsletter from '../components/newsletter'
 import styled from 'styled-components'
@@ -21,7 +21,7 @@ export const Footer = () => {
 
         <div className="footer-nav-wrap">
           <AniLink className="footer-logo-wrap" fade to="/">
-            <img className="footer-logo" src={logo} alt="Amelia Pond Logo - cursive writing of her name"/>
+            <LogoSvg />
           </AniLink>
           <ul className="footer-nav-list left">
             {blogLinks.map((item)=>{
@@ -33,7 +33,7 @@ export const Footer = () => {
           <ul className="footer-nav-list right">
             {links.map((item)=>{
               return(
-                <li key={uuidv4()}><AniLink className="footer-nav-link" fade to="/" key={uuidv4()}>{item.text}</AniLink></li>
+                <li key={uuidv4()}><AniLink className="footer-nav-link" fade to={item.path} key={uuidv4()}>{item.text}</AniLink></li>
               )
             })}
           </ul>

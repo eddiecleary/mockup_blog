@@ -9,8 +9,6 @@ import {getFluidGatsbyImage, getFixedGatsbyImage} from 'gatsby-source-sanity'
 
 export const BlogCard = ({imageId,title,author,publishedAt,category,excerpt,alt}) => {
 
-console.log(category);
-
 let color;
 
 switch (category.toString().toLowerCase()) {

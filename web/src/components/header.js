@@ -5,7 +5,7 @@ import Dot from './dot.js'
 import {Spiral as Hamburger} from 'hamburger-react'
 import links from '../constants/links'
 import {blogLinks} from '../constants/links'
-import logo from '../images/logo.svg'
+import Logo from '../images/svg/logo.svg'
 import {v4 as uuidv4} from 'uuid'
 
 export const Header = () => {
@@ -18,8 +18,8 @@ export const Header = () => {
     <StyledHeader>
       <div className="container fw">
         <div className="header-wrap">
-          <AniLink className="logo-wrap" fade to="/">
-            <img className="logo" src={logo} alt="Amelia Pond Logo - cursive writing of her name"/>
+          <AniLink className="logo-wrap" to="/">
+            <Logo className="logo"/>
           </AniLink>
           <nav className="nav" role="navigation">
             <div className={isOpen?`nav-wrap expanded`:`nav-wrap`}>
@@ -33,7 +33,7 @@ export const Header = () => {
               <ul className="nav-list right">
               {links.map((item)=>{
                   return(
-                    <li key={uuidv4()}><AniLink className="nav-link" fade to="/" key={uuidv4()}>{item.text}</AniLink></li>
+                    <li key={uuidv4()}><AniLink className="nav-link" fade to={item.path} key={uuidv4()}>{item.text}</AniLink></li>
                   )
                 })}
               </ul>
