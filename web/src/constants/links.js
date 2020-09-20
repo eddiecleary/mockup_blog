@@ -1,16 +1,16 @@
 export const blogLinks = [
   {
-    path: '/lifestyle',
+    path: '/blog/lifestyle',
     text: 'lifestyle',
     color: '#4a9c47'
   },
   {
-    path: '/food',
+    path: '/blog/food',
     text: 'food',
     color: '#e76356'
   },
   {
-    path: '/travel',
+    path: '/blog/travel',
     text: 'travel',
     color: '#1984b5'
   },

@@ -30,7 +30,7 @@
 const path = require('path');
 
 // ----------
-exports.createPages = async function ({ actions, graphql, reporter }) {
+async function createBlogCategoryPages(graphql, actions) {
   const { data } = await graphql(`
     query{
       allSanityCategory {
@@ -45,20 +45,17 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
   `)
   
   const blogCategoryTemplate = path.resolve('./src/templates/blogCategory.js')
-  const test = [0,1,2];
 
   if (data.errors) {
-    reporter.panicOnBuild('Error while running GraphQL query.')
-    return
+    throw data.errors
   }
 
-  console.log(data);
   data.allSanityCategory.edges.forEach(edge => {
     const {title} = edge.node;
     actions.createPage({
       path: `/blog/${title.toLowerCase()}/`,
       component: blogCategoryTemplate,
-      context: { id: title},
+      context: { title },
     })
   })
 }
@@ -66,9 +63,9 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
 // ------------------
 
 // Create all pages
-// exports.createPages = async ({graphql, actions}) => {
-//   await createBlogCategoryPages(graphql, actions)
-// }
+exports.createPages = async ({graphql, actions}) => {
+  await createBlogCategoryPages(graphql, actions)
+}
 
 // Force newer react-dom hot loader to be used during development
 exports.onCreateWebpackConfig = ({ stage, actions }) => {

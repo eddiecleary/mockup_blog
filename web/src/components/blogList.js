@@ -8,9 +8,18 @@ import styled from 'styled-components'
 import { mapEdgesToNodes } from '../lib/helpers'
 
 
-export const BlogList = () => {
-  const {recentPosts} = useStaticQuery(getRecentPosts)
-  const postNodes = recentPosts && mapEdgesToNodes(recentPosts);
+export const BlogList = ({posts, recentPosts}) => {
+  console.log(posts);
+  let postNodes;
+
+  if (recentPosts) {
+    const {recentPosts} = useStaticQuery(getRecentPosts)
+    postNodes = mapEdgesToNodes(recentPosts);
+  } else {
+    postNodes = posts;
+  }
+
+  console.log(postNodes);
 
   return (
 

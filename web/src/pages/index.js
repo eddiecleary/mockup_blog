@@ -53,7 +53,7 @@ export function Home({data}) {
             <h2 className="intro-title">who is this book for?</h2>
             <div className="intro-sub-title-wrap">
               <div className="intro-animation animation-container" ref={animationContainer}></div>
-              {/* <Title className="intro-sub-title" title="all creatives" headingLevel={2}/>      */}
+              <Title className="intro-sub-title" title="all creatives" headingLevel={2}/>     
             </div>
             <p className="intro-p">Rediscover your imagination and ignite your creativity. Think Outside The Box  helps creatives of all types break out of boring templates and start creating designs using their own creative imagination.</p>
             <div className="intro-circle-wrap">
@@ -113,7 +113,7 @@ export function Home({data}) {
 
         <section className="latest-blogs-section">
           <div className="container">
-            <BlogList />
+            <BlogList recentPosts={true}/>
             <AniLink className="btn btn-secondary latest-blogs-btn" fade to="/">view more posts</AniLink>
           </div>
         </section>
