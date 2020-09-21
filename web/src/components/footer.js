@@ -26,7 +26,7 @@ export const Footer = () => {
           <ul className="footer-nav-list left">
             {blogLinks.map((item)=>{
               return(
-                <li key={uuidv4()}><AniLink className="footer-nav-link" fade to="/" key={uuidv4()}><Dot color={item.color} />{item.text}</AniLink></li>
+                <li key={uuidv4()}><AniLink className="footer-nav-link" fade to={item.path} key={uuidv4()}><Dot color={item.color} />{item.text}</AniLink></li>
               )
             })}
           </ul>
