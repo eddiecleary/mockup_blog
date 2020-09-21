@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BlogHero from '../components/blogHero'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 import Img from 'gatsby-image'
@@ -29,7 +28,7 @@ export const BlogCategory = ({ pageContext, data }) => {
             </div>
           </div>
         </section>
-
+        
         <section className="posts">
           <div className="container">
             <BlogList posts={postsInfo} />
@@ -112,7 +111,7 @@ export const pageQuery = graphql`
               name
             }
           }
-          publishedAt(formatString: "MMM DD YYYY")
+          publishedAt(formatString: "MMM Do YYYY")
         }
       }
     }

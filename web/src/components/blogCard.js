@@ -1,33 +1,19 @@
-// import '../scss/components/_blogcard.scss'
 import React from 'react'
 import Img from 'gatsby-image'
 import PortableText from '@sanity/block-content-to-react'
-import { format, parseISO, formatISO } from 'date-fns'
 import styled from 'styled-components'
-import cn from 'classnames'
-import {getFluidGatsbyImage, getFixedGatsbyImage} from 'gatsby-source-sanity'
+import { categoryToColor } from '../lib/helpers.js'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-export const BlogCard = ({imageId,title,author,publishedAt,category,excerpt,alt}) => {
+export const BlogCard = ({imageId,title,publishedAt,category,excerpt,alt,slug}) => {
 
-let color;
-
-switch (category.toString().toLowerCase()) {
-  case 'lifestyle':
-    color = 'rgba(74, 156, 71, 0.55)';
-    break;
-  case 'food':
-    color = 'rgba(231, 99, 86, 0.55)';
-    break;
-  case 'travel':
-    color = 'rgba(25, 132, 181, 0.55)';
-    break;
-}
+  const color = categoryToColor(category, 0.55);
+  const colorOpaque = categoryToColor(category, 0.9);
 
   return (
-    <StyledBlogCard pewdiepie={color}>
+    <StyledBlogCard color={color} colorOpaque={colorOpaque}>
       <div className="blog-card-img-wrap">
         <Img fluid={imageId} className={"blog-card-img"} alt={alt} width={500}/>
-        <div className={`blog-card-category ${category.toString().toLowerCase()}`}>{category}</div>
       </div>
       <div className="blog-card-text-wrap">
         <header>
@@ -37,12 +23,13 @@ switch (category.toString().toLowerCase()) {
           <PortableText blocks={excerpt} />
         </div>
         <footer className="blog-card-footer">
-          <cite className="blog-card-author">By: {author}</cite>
+          <span className="blog-card-category">{category.toString().toLowerCase()}</span>
           <time className="blog-card-date">
-          {format(publishedAt, 'MMM Do, YYYY')}
+          {publishedAt}
           </time> 
         </footer>
       </div>
+      <AniLink className="blog-card-link" fade to={`/blog/${category.toString().toLowerCase()}/${slug}`}></AniLink>
     </StyledBlogCard>
   )
 }
@@ -55,9 +42,15 @@ const StyledBlogCard = styled.article`
   max-width: 450px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px ${props=>props.color};
+  transition: all 0.3s ease;
+  position: relative;
 
   &:hover {
-    box-shadow: 2px 2px 8px ${props=>props.pewdiepie};
+    transform: scale(1.025);
   }
 
   @media (min-width: 992px) {
@@ -80,35 +73,11 @@ const StyledBlogCard = styled.article`
     }
   }
 
-  .blog-card-category {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: var(--space-sm) var(--space-lg);
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    border: 1.5px solid var(--white);
-    border-left: none;
-    color: var(--white);
-    text-transform: capitalize;
-    text-align: center;
-    font-size: var(--text-md);
-
-    &.lifestyle {
-      background-color: var(--lifestyle);
-    }
-
-    &.food {
-      background-color: var(--food);
-    }
-
-    &.travel {
-      background-color: var(--travel);
-    }
-  }
-
   .blog-card-text-wrap {
     padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     .blog-card-title {
       margin: 0;
@@ -118,20 +87,38 @@ const StyledBlogCard = styled.article`
 
     .blog-card-excerpt {
       margin: var(--space-md) 0;
+      flex: 1;
     }
 
     .blog-card-footer {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      .blog-card-category {
+        color: var(--white);
+        background-color: ${props=> props.colorOpaque};
+        text-transform: capitalize;
+        padding: var(--space-xxxs) var(--space-md);
+        border-radius: 10px;
+      }
   
       .blog-card-author {
         font-style: initial;
       }
   
       .blog-card-date {
-  
+        
       }
     }
+  }
+
+  .blog-card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 `
 

@@ -1,15 +1,12 @@
-// import '../scss/components/_bloglist.scss'
 import React, {useEffect, useState } from 'react'
 // import Anilink from 'gatsby-plugin-transition-link/AniLink'
 import {graphql, useStaticQuery} from 'gatsby'
 import BlogCard from './blogCard'
-import sanityClient from '../lib/client.js'
 import styled from 'styled-components'
 import { mapEdgesToNodes } from '../lib/helpers'
 
 
 export const BlogList = ({posts, recentPosts}) => {
-  console.log(posts);
   let postNodes;
 
   if (recentPosts) {
@@ -24,31 +21,33 @@ export const BlogList = ({posts, recentPosts}) => {
   return (
 
     <StyledBlogList>
+
       {postNodes && 
         postNodes.map((post, index)=>(
           <BlogCard 
             title={post.title} 
             publishedAt={post.publishedAt} 
             excerpt={post._rawExcerpt}
-            author={post.authors[0].author.name}
             category={post.categories[0].title} 
             imageId={post.mainImage.asset.fluid}
             alt={post.mainImage.alt}
             key={post.id}
+            slug={post.slug.current}
           />
         ))
       }
+
     </StyledBlogList>
   )
 }
 
 export const getRecentPosts = graphql`
-  query {
+  query{
     recentPosts: allSanityPost(sort: {fields: [publishedAt], order: ASC}, filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}, limit: 4) {
       edges {
         node {
           id
-          publishedAt
+          publishedAt(formatString: "MMM Do YYYY")
           mainImage {
             alt
             asset {
@@ -61,11 +60,6 @@ export const getRecentPosts = graphql`
           _rawExcerpt
           slug {
             current
-          }
-          authors {
-            author {
-              name
-            }
           }
           categories {
             title
@@ -84,7 +78,8 @@ const StyledBlogList = styled.ul`
   @media (min-width: 992px) {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    margin-right: var(--space-xxxs);
   }
 `
 

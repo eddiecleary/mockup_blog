@@ -45,3 +45,19 @@ export function toPlainText (blocks) {
     })
     .join('\n\n')
 }
+
+export function categoryToColor (category, opacity = 1) {
+  let color;
+  switch (category.toString().toLowerCase()) {
+    case 'lifestyle':
+      color = `rgba(74, 156, 71, ${opacity})`;
+      break;
+    case 'food':
+      color = `rgba(231, 99, 86, ${opacity})`;
+      break;
+    case 'travel':
+      color = `rgba(25, 132, 181, ${opacity})`;
+      break;
+  }
+  return color;
+}

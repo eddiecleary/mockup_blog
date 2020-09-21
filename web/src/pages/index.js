@@ -114,7 +114,7 @@ export function Home({data}) {
         <section className="latest-blogs-section">
           <div className="container">
             <BlogList recentPosts={true}/>
-            <AniLink className="btn btn-secondary latest-blogs-btn" fade to="/">view more posts</AniLink>
+            <AniLink className="btn btn-secondary latest-blogs-btn" fade to="/blog">view all posts</AniLink>
           </div>
         </section>
       
