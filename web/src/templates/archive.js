@@ -9,7 +9,6 @@ import SEO from '../components/seo'
 
 export const archive = ({data}) => {
   const posts = mapEdgesToNodes(data.allSanityPost);
-  console.log(posts);
   return (
     <Layout>
       <SEO />

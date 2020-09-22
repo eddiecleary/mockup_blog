@@ -6,24 +6,13 @@ import styled from 'styled-components'
 import { mapEdgesToNodes } from '../lib/helpers'
 
 
-export const BlogList = ({posts, recentPosts}) => {
-  let postNodes;
-
-  if (recentPosts) {
-    const {recentPosts} = useStaticQuery(getRecentPosts)
-    postNodes = mapEdgesToNodes(recentPosts);
-  } else {
-    postNodes = posts;
-  }
-
-  console.log(postNodes);
-
+export const BlogList = ({posts}) => {
   return (
 
     <StyledBlogList>
 
-      {postNodes && 
-        postNodes.map((post, index)=>(
+      {posts && 
+        posts.map((post, index)=>(
           <BlogCard 
             title={post.title} 
             publishedAt={post.publishedAt} 

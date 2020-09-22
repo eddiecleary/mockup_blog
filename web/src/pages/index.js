@@ -24,8 +24,6 @@ export function Home({data}) {
 
   const recentPosts = mapEdgesToNodes(data.recentPosts);
 
-  console.log(data);
-
   useEffect(() => {
     const anim = lottie.loadAnimation({
       container: animationContainer.current,

@@ -17,8 +17,6 @@ export const blogPost = ({pageContext, data}) => {
 
   const otherPosts = mapEdgesToNodes(data.otherPosts);
 
-  console.log(otherPosts);
-
   return (
     <Layout>
       <SEO />
