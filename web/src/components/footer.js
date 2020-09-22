@@ -1,4 +1,3 @@
-// import '../scss/layout/_footer.scss'
 import React from 'react'
 import socialIcons from '../constants/social-icons'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'

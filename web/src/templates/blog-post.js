@@ -6,6 +6,7 @@ import PortableText from '../components/portableText'
 import BlogList from '../components/blogList'
 import { categoryToColor, mapEdgesToNodes } from '../lib/helpers.js'
 import { graphql } from 'gatsby'
+import SEO from '../components/seo'
 
 
 export const blogPost = ({pageContext, data}) => {
@@ -20,6 +21,7 @@ export const blogPost = ({pageContext, data}) => {
 
   return (
     <Layout>
+      <SEO />
       <StyledBlogPost color={color}>
 
         <section className="header">

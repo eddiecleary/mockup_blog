@@ -11,17 +11,28 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   siteMetadata: {
-    title: `Title from siteMetadata`,
-    author: 'Djoe',
-    description: 'description from sitemetadata'
+    title: `Premium Blog Example | Eddie Cleary`,
+    author: 'Eddie Cleary',
+    description: 'A mockup site built by Eddie Cleary to show expertise in building Gatsby blog websites.',
+    image: 'screenshot.jpg'
   },
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-transition-link',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Blog Mockup | Eddie Cleary',
+        start_url: '/',
+        icon: 'src/images/favicon.png',
+        lang: 'en',
+        description: 'A mockup site built by Eddie Cleary to show expertise in building Gatsby blog websites.',
+      },
+    },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {

@@ -5,10 +5,12 @@ import Hero from '../components/hero'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import EnvelopeSvg from '../images/svg/envelope.svg'
+import SEO from '../components/seo'
 
 export const contact = ({ data }) => {
   return (
     <Layout>
+      <SEO />
       <StyledContact>
 
         <Hero img={data.heroImage.childImageSharp.fluid} altImgText="Amelia Pond typing on a laptop keyboard" title="Contact" Icon={EnvelopeSvg} subtitle={"Reach out to me!"} description={contactHeroDescription} btnText="Send Message" />

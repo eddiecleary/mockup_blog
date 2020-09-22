@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Bloglist from '../components/blogList'
 import { mapEdgesToNodes } from '../lib/helpers.js'
+import SEO from '../components/seo'
 
 
 export const archive = ({data}) => {
@@ -11,6 +12,7 @@ export const archive = ({data}) => {
   console.log(posts);
   return (
     <Layout>
+      <SEO />
       <StyledArchive>
 
         <section className="hero">

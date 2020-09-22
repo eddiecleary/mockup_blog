@@ -8,18 +8,23 @@ import {buildImageObj} from '../lib/helpers'
 function SEO ({description, lang, meta, keywords, title, image}) {
   return (
     <StaticQuery
-      query={detailsQuery}
+      query={query}
       render={data => {
-        const metaDescription = description || (data.site && data.site.description) || ''
-        const siteTitle = (data.site && data.site.title) || ''
-        const siteAuthor = (data.site && data.site.author && data.site.author.name) || ''
-        const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : ''
+        const {
+          defaultTitle,
+          defaultDescription,
+          defaultImage,
+          author
+        } = data.site.siteMetadata;
+        const metaDescription = description || (data.site && defaultDescription) || ''
+        const siteTitle = (data.site && defaultTitle) || ''
+        const siteAuthor = (data.site && author.name) || ''
+        const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : defaultImage
 
         return (
           <Helmet
             htmlAttributes={{lang}}
-            title={title}
-            titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
+            title={siteTitle}
             meta={[
               {
                 name: 'description',
@@ -51,7 +56,7 @@ function SEO ({description, lang, meta, keywords, title, image}) {
               },
               {
                 name: 'twitter:title',
-                content: title
+                content: siteTitle
               },
               {
                 name: 'twitter:description',
@@ -77,27 +82,28 @@ function SEO ({description, lang, meta, keywords, title, image}) {
 SEO.defaultProps = {
   lang: 'en',
   meta: [],
-  keywords: []
+  keywords: ['blog','example','gatsby']
 }
 
 SEO.propTypes = {
+  title: PropTypes.string.isRequired,
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired
+  image: PropTypes.string
 }
 
 export default SEO
 
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site: sanitySiteSettings(_id: {eq: "siteSettings"}) {
-      title
-      description
-      keywords
-      author {
-        name
+export const query = graphql`
+  query{
+    site {
+      siteMetadata {
+        defaultTitle: title
+        author
+        defaultDescription: description
+        defaultImage: image
       }
     }
   }

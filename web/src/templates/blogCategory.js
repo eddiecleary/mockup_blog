@@ -5,6 +5,7 @@ import Layout from '../components/layout'
 import Img from 'gatsby-image'
 import { mapEdgesToNodes } from '../lib/helpers.js'
 import BlogList from '../components/blogList'
+import SEO from '../components/seo'
 
 export const BlogCategory = ({ pageContext, data }) => {
   const { title } = pageContext
@@ -12,6 +13,7 @@ export const BlogCategory = ({ pageContext, data }) => {
   const postsInfo = mapEdgesToNodes(data.categoryPosts);
   return (
     <Layout>
+      <SEO />
       <StyledBlogCategory>
         
         <section className="hero">

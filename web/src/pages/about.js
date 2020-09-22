@@ -5,10 +5,12 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import EmojiSvg from '../images/svg/emojismile.svg'
+import SEO from '../components/seo'
 
 export const about = ({ data }) => {
   return (
     <Layout>
+      <SEO />
       <StyledAbout>
 
         <Hero img={data.heroImage.childImageSharp.fluid} altImgText="Amelia Pond holding smiling - portrait shot" title="About Me" Icon={EmojiSvg} subtitle={"Author, Blogger, Traveler!"} description={aboutHeroDescription} btnText="Read More" />

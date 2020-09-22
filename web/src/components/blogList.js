@@ -41,35 +41,6 @@ export const BlogList = ({posts, recentPosts}) => {
   )
 }
 
-export const getRecentPosts = graphql`
-  query{
-    recentPosts: allSanityPost(sort: {fields: [publishedAt], order: ASC}, filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}, limit: 4) {
-      edges {
-        node {
-          id
-          publishedAt(formatString: "MMM Do YYYY")
-          mainImage {
-            alt
-            asset {
-              fluid(maxWidth: 500) {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-          categories {
-            title
-          }
-        }
-      }
-    }
-  }
-`
-
 
 const StyledBlogList = styled.ul`
   margin: 0 auto;

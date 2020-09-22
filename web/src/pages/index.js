@@ -15,10 +15,16 @@ import Img from 'gatsby-image'
 import BlogList from '../components/blogList'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import styled, { keyframes } from 'styled-components'
+import { mapEdgesToNodes } from '../lib/helpers.js'
+import SEO from '../components/seo'
 
 export function Home({data}) {
   let animationContainer = createRef();
   let animationContainer2 = createRef();
+
+  const recentPosts = mapEdgesToNodes(data.recentPosts);
+
+  console.log(data);
 
   useEffect(() => {
     const anim = lottie.loadAnimation({
@@ -44,7 +50,7 @@ export function Home({data}) {
 
   return (
     <Layout>
-
+      <SEO />
       <StyledIndex>
         <Hero img={data.heroImage.childImageSharp.fluid} altImgText="Amelia Pond holding her book 'Think Outside the Box'" Icon={FireSvg} title="fire up" subtitle="your creativity" description={indexHeroDescription} btnText="buy book" />
         
@@ -113,7 +119,7 @@ export function Home({data}) {
 
         <section className="latest-blogs-section">
           <div className="container">
-            <BlogList recentPosts={true}/>
+            <BlogList posts={recentPosts}/>
             <AniLink className="btn btn-secondary latest-blogs-btn" fade to="/blog">view all posts</AniLink>
           </div>
         </section>
@@ -173,8 +179,32 @@ export const query = graphql`
         }
       }
     }
+    recentPosts: allSanityPost(sort: {fields: [publishedAt], order: DESC}, filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}, limit: 4) {
+      edges {
+        node {
+          id
+          publishedAt(formatString: "MMM Do YYYY")
+          mainImage {
+            alt
+            asset {
+              fluid(maxWidth: 500) {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+          title
+          _rawExcerpt
+          slug {
+            current
+          }
+          categories {
+            title
+          }
+        }
+      }
+    }
   }
-`
+`;
 
 export const fragments = graphql`
   fragment spinImgFragment on File {
