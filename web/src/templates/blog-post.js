@@ -11,7 +11,7 @@ import SEO from '../components/seo'
 
 export const blogPost = ({pageContext, data}) => {
   const {_id} = pageContext; 
-  const {authors, _rawExcerpt, _rawBody, mainImage, publishedAt, title, categories} = data.thisPost;
+  const {authors, _rawExcerpt, _rawBody, mainImage, publishedAt, title, categories, body, excerpt} = data.thisPost;
   const category = categories[0].title;
   const color = categoryToColor(category);
 
@@ -38,10 +38,10 @@ export const blogPost = ({pageContext, data}) => {
         <section className="post">
           <div className="container">
             <div className="post-excerpt">
-              <PortableText blocks={_rawExcerpt}></PortableText>
+              <PortableText blocks={_rawExcerpt} />
             </div>
             <div className="post-body">
-              <PortableText blocks={_rawBody}></PortableText>
+              <PortableText blocks={_rawBody} />
             </div>
           </div>
         </section>
@@ -201,6 +201,18 @@ query($_id:String!, $category:String!){
     }
     _rawExcerpt
     _rawBody
+    body {
+      _key
+      _type
+      style
+      list
+    }
+    excerpt {
+      _key
+      _type
+      style
+      list
+    }
   }
   otherPosts:allSanityPost(limit: 3, filter: {categories: {elemMatch: {title: {eq: $category}}}, _id: {ne: $_id}}) {
     edges {

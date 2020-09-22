@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 import {getFluidGatsbyImage} from 'gatsby-source-sanity'
 import clientConfig from '../../client-config'
 
-export default ({node}) => {
+const figure = ({node}) => {
   if (!node || !node.asset || !node.asset._id) { return null }
   const fluidProps = getFluidGatsbyImage(
     node.asset._id,
@@ -17,3 +17,5 @@ export default ({node}) => {
     </figure>
   )
 }
+
+export default figure
