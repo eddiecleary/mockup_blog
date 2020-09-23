@@ -22,6 +22,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-transition-link',
+    'gatsby-source-sanity-transform-images',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-manifest',

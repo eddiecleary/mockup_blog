@@ -50,6 +50,7 @@
     "gatsby-source-contentful": "^2.3.46",
     "gatsby-source-filesystem": "^2.3.30",
     "gatsby-source-sanity": "^4.0.3",
+    "gatsby-source-sanity-transform-images": "0.0.7",
     "gatsby-transformer-sharp": "^2.5.15",
     "gsap": "^3.5.1",
     "hamburger-react": "^2.2.0",
