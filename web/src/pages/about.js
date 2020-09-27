@@ -110,28 +110,28 @@ export const query = graphql`
     heroImage: file(relativePath:{eq:"images/aboutHero.jpg"}){
       childImageSharp{
         fluid(quality:90,maxWidth:450){
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     hammock: file(relativePath:{eq:"images/hammock.jpg"}){
       childImageSharp{
         fluid(quality:90,maxWidth:700){
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     award: file(relativePath:{eq:"images/award.jpg"}){
       childImageSharp{
         fluid(quality:90,maxWidth:350){
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     cupcake: file(relativePath:{eq:"images/cupcake.jpg"}){
       childImageSharp{
         fluid(quality:90,maxWidth:900){
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }

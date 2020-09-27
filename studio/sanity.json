@@ -18,8 +18,7 @@
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
     "@sanity/studio-hints",
-    "@sanity/vision",
-    "asset-source-cloudinary"
+    "@sanity/vision"
   ],
   "parts": [
     {

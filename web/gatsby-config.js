@@ -25,6 +25,18 @@ module.exports = {
     'gatsby-source-sanity-transform-images',
     'gatsby-plugin-sharp',
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-156955526-2",
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 400,
+        defer: true,
+        cookieDomain: "eddiecleary.com",
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Blog Mockup | Eddie Cleary',

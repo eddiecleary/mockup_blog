@@ -152,28 +152,28 @@ export const query = graphql`
     heroImage: file(relativePath:{eq:"images/homeHero.jpg"}){
       childImageSharp{
         fluid(quality:90,maxWidth:450){
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     ctaImg1: file(relativePath: {eq: "images/cta1.jpg"}){
       childImageSharp{
         fluid(quality:75,maxWidth:433){
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     ctaImg2: file(relativePath: {eq: "images/cta2.jpg"}){
       childImageSharp{
         fluid(quality:75,maxWidth:145){
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     amelia: file(relativePath: {eq: "images/amelia.jpg"}){
       childImageSharp{
         fluid(quality:75,maxWidth:275){
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
@@ -208,7 +208,8 @@ export const fragments = graphql`
   fragment spinImgFragment on File {
     childImageSharp {
       fixed(width: 180, height: 180) {
-        ...GatsbyImageSharpFixed_withWebp
+        ...GatsbyImageSharpFixed_withWebp_tracedSVG
+
       }
     }
   }
@@ -216,7 +217,8 @@ export const fragments = graphql`
   fragment spinBGFragment on File {
     childImageSharp {
       fixed(width: 200, height: 200) {
-        ...GatsbyImageSharpFixed_withWebp
+        ...GatsbyImageSharpFixed_withWebp_tracedSVG
+
       }
     }
   }

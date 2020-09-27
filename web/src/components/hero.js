@@ -12,7 +12,7 @@ export const Hero = ({img,altImgText,Icon,title,subtitle,description,btnText}) =
           <div className="hero-text-wrap">
             <div className="hero-title-wrap">
               <Icon className="hero-icon"/>
-              <Title title={title} subtitle={subtitle} animated="true"/>
+              <Title title={title} subtitle={subtitle} />
             </div>
             <div className="hero-p-wrap">
               <p className="hero-p">

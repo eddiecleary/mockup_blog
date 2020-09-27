@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
-import Img from 'gatsby-image'
 import styled from 'styled-components'
 import EnvelopeSvg from '../images/svg/envelope.svg'
 import SEO from '../components/seo'
@@ -14,7 +13,7 @@ export const contact = ({ data }) => {
       <StyledContact>
 
         <Hero img={data.heroImage.childImageSharp.fluid} altImgText="Amelia Pond typing on a laptop keyboard" title="Contact" Icon={EnvelopeSvg} subtitle={"Reach out to me!"} description={contactHeroDescription} btnText="Send Message" />
-
+        <p>hello world</p>
         <section className="contact-section">
           <div className="container">
             <h2 className="contact-title">I Would Love To Hear From You!</h2>
@@ -27,7 +26,7 @@ export const contact = ({ data }) => {
                 <label className="form-label" htmlFor="email">Email:</label>
                 <input type="email" placeholder="Email"/>
               </div>
-              <div className="form-group w-100">
+              <div className='form-group w-100'>
                 <label htmlFor="message" className="form-label">Message:</label>
                 <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter message and click send!"/>
                 <button className="form-submit" type="submit">Send!</button>
@@ -148,7 +147,7 @@ export const query = graphql`
     heroImage: file(relativePath:{eq:"images/contactHero.jpg"}){
       childImageSharp{
         fluid(quality:90,maxWidth:450){
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }

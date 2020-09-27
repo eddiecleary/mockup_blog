@@ -1,5 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 import 'normalize.css'
+import "tailwindcss/base";
+import "tailwindcss/components";
+import "tailwindcss/utilities";
 
 export const GlobalStyles = createGlobalStyle`
 

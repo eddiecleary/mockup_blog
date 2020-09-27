@@ -6,7 +6,7 @@ export const backBtn = () => {
   const matches = useMediaQuery('(min-width: 768px)');
 
   return (
-    <StyledBackBtn class="return">
+    <StyledBackBtn className="return">
       <a href="https://www.eddiecleary.com">
         <svg
           viewBox="0 0 32 32"
