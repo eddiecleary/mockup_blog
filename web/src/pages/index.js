@@ -1,4 +1,4 @@
-import React, {useEffect, createRef} from "react"
+import React, {useEffect, createRef} from 'react'
 import Layout from '../components/layout'
 import {graphql} from 'gatsby'
 import FireSvg from '../images/svg/fire.svg'
@@ -14,26 +14,26 @@ import Testimonials from '../components/testimonials'
 import Img from 'gatsby-image'
 import BlogList from '../components/blogList'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import styled, { keyframes } from 'styled-components'
-import { mapEdgesToNodes } from '../lib/helpers.js'
+import styled, {keyframes} from 'styled-components'
+import {mapEdgesToNodes} from '../lib/helpers.js'
 import SEO from '../components/seo'
 
-export function Home({data}) {
-  let animationContainer = createRef();
-  let animationContainer2 = createRef();
+export function Home ({data}) {
+  let animationContainer = createRef()
+  let animationContainer2 = createRef()
 
-  const recentPosts = mapEdgesToNodes(data.recentPosts);
+  const recentPosts = mapEdgesToNodes(data.recentPosts)
 
   useEffect(() => {
     const anim = lottie.loadAnimation({
       container: animationContainer.current,
-      renderer: "svg",
+      renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData: lightBulbAnimation,
-    }).setSpeed(0.75);
+      animationData: lightBulbAnimation
+    }).setSpeed(0.75)
     // return () => anim.destroy(); // optional clean up for unmounting
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const anim2 = lottie.loadAnimation({
@@ -41,93 +41,91 @@ export function Home({data}) {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData: testimonialAnimation,
-      });
-      // return () => anim2.destroy();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+      animationData: testimonialAnimation
+    })
+    return () => anim2.destroy()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Layout>
       <SEO />
       <StyledIndex>
-        <Hero img={data.heroImage.childImageSharp.fluid} altImgText="Amelia Pond holding her book 'Think Outside the Box'" Icon={FireSvg} title="fire up" subtitle="your creativity" description={indexHeroDescription} btnText="buy book" />
-        
-        <section className="intro-section">
-          <div className="container">
-            <h2 className="intro-title">who is this book for?</h2>
-            <div className="intro-sub-title-wrap">
-              <div className="intro-animation animation-container" ref={animationContainer}></div>
-              <Title className="intro-sub-title" title="all creatives" headingLevel={2}/>     
+        <Hero img={data.heroImage.childImageSharp.fluid} altImgText="Amelia Pond holding her book 'Think Outside the Box'" Icon={FireSvg} title='fire up' subtitle='your creativity' description={indexHeroDescription} btnText='buy book' />
+
+        <section className='intro-section'>
+          <div className='container'>
+            <h2 className='intro-title'>who is this book for?</h2>
+            <div className='intro-sub-title-wrap'>
+              <div className='intro-animation animation-container' ref={animationContainer} />
+              <Title className='intro-sub-title' title='all creatives' headingLevel={2} />
             </div>
-            <p className="intro-p">Rediscover your imagination and ignite your creativity. Think Outside The Box  helps creatives of all types break out of boring templates and start creating designs using their own creative imagination.</p>
-            <div className="intro-circle-wrap">
-              <SpinCircle text="designers" image={data.spin1.childImageSharp.fixed}  BGimage={data.spin1_bg.childImageSharp.fixed}  />
-              <SpinCircle text="developers" image={data.spin2.childImageSharp.fixed} BGimage={data.spin2_bg.childImageSharp.fixed} />
-              <SpinCircle text="artists" image={data.spin3.childImageSharp.fixed} BGimage={data.spin3_bg.childImageSharp.fixed}/>
+            <p className='intro-p'>Rediscover your imagination and ignite your creativity. Think Outside The Box  helps creatives of all types break out of boring templates and start creating designs using their own creative imagination.</p>
+            <div className='intro-circle-wrap'>
+              <SpinCircle text='designers' image={data.spin1.childImageSharp.fixed} BGimage={data.spin1_bg.childImageSharp.fixed} />
+              <SpinCircle text='developers' image={data.spin2.childImageSharp.fixed} BGimage={data.spin2_bg.childImageSharp.fixed} />
+              <SpinCircle text='artists' image={data.spin3.childImageSharp.fixed} BGimage={data.spin3_bg.childImageSharp.fixed} />
             </div>
-          </div>
-        </section>
-        
-        <section className="testimonials-section">
-          <div className="container wide">
-            <div className="animation-container2 testimonials-animation" ref={animationContainer2}>       
-            </div>
-            <h3 className="testimonials-title">what readers are saying</h3>
-            <Testimonials number={4}/>          
           </div>
         </section>
 
-        <section className="cta-section">
-          <div className="container">
-            <div className="cta-img-wrap">
-              <Img className="cta-img-book" fluid={data.ctaImg1.childImageSharp.fluid} />
-              <Img className="cta-img-phone" fluid={data.ctaImg2.childImageSharp.fluid} />
-            </div>
-            <a href="/" className="btn">buy now</a>
+        <section className='testimonials-section'>
+          <div className='container wide'>
+            <div className='animation-container2 testimonials-animation' ref={animationContainer2} />
+            <h3 className='testimonials-title'>what readers are saying</h3>
+            <Testimonials number={4} />
           </div>
         </section>
 
-        <section className="blog-intro-section">
-          <div className="container">
-            <div className="blog-intro-wrap-1">
-              <Img className="blog-intro-profile-img" fluid={data.amelia.childImageSharp.fluid} />
-              <div className="blog-intro-title-wrap-top">
-                <h3 className="blog-intro-title-1">Hello!</h3>
-                <WaveSvg className="blog-intro-wave-svg" />
+        <section className='cta-section'>
+          <div className='container'>
+            <div className='cta-img-wrap'>
+              <Img className='cta-img-book' fluid={data.ctaImg1.childImageSharp.fluid} />
+              <Img className='cta-img-phone' fluid={data.ctaImg2.childImageSharp.fluid} />
+            </div>
+            <a href='/' className='btn'>buy now</a>
+          </div>
+        </section>
+
+        <section className='blog-intro-section'>
+          <div className='container'>
+            <div className='blog-intro-wrap-1'>
+              <Img className='blog-intro-profile-img' fluid={data.amelia.childImageSharp.fluid} />
+              <div className='blog-intro-title-wrap-top'>
+                <h3 className='blog-intro-title-1'>Hello!</h3>
+                <WaveSvg className='blog-intro-wave-svg' />
               </div>
             </div>
-            <div className="blog-intro-wrap-2">
-              <div className="blog-intro-title-wrap-bottom">
-                <h3 className="blog-intro-title-2">i'm amelia pond</h3>
-                <h4 className="blog-intro-sub-title">creativity coach</h4>
+            <div className='blog-intro-wrap-2'>
+              <div className='blog-intro-title-wrap-bottom'>
+                <h3 className='blog-intro-title-2'>i'm amelia pond</h3>
+                <h4 className='blog-intro-sub-title'>creativity coach</h4>
               </div>
             </div>
-            <p className="blog-intro-p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+            <p className='blog-intro-p'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
             </p>
-            <div className="blog-intro-btn-wrap">
-              <AniLink className="btn btn-secondary" fade to="/about">About Me</AniLink>
-              <AniLink className="btn btn-secondary" fade to="/contact">Contact</AniLink>
+            <div className='blog-intro-btn-wrap'>
+              <AniLink className='btn btn-secondary' fade to='/about'>About Me</AniLink>
+              <AniLink className='btn btn-secondary' fade to='/contact'>Contact</AniLink>
             </div>
-            <div className="blog-intro-arrow-wrap">
-              <ArrowSvg className="blog-intro-arrow-svg"/>
+            <div className='blog-intro-arrow-wrap'>
+              <ArrowSvg className='blog-intro-arrow-svg' />
             </div>
           </div>
         </section>
 
-        <section className="latest-blogs-section">
-          <div className="container">
-            <BlogList posts={recentPosts}/>
-            <AniLink className="btn btn-secondary latest-blogs-btn" fade to="/blog">view all posts</AniLink>
+        <section className='latest-blogs-section'>
+          <div className='container'>
+            <BlogList posts={recentPosts} />
+            <AniLink className='btn btn-secondary latest-blogs-btn' fade to='/blog'>view all posts</AniLink>
           </div>
         </section>
-      
+
       </StyledIndex>
 
     </Layout>
   )
 }
-
 
 export const query = graphql`
   query{
@@ -202,7 +200,7 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 export const fragments = graphql`
   fragment spinImgFragment on File {
@@ -222,11 +220,9 @@ export const fragments = graphql`
       }
     }
   }
-`;
+`
 
 const indexHeroDescription = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.'
-
-
 
 const wave = keyframes`
   0% {
@@ -280,7 +276,7 @@ const StyledIndex = styled.main`
         font-size: var(--text-xxl);
       }
     }
-    
+
     .intro-animation {
       width: 80px;
       margin: 0;
@@ -351,7 +347,7 @@ const StyledIndex = styled.main`
       margin-top: var(--space-xs);
       margin-bottom: var(--space-lg);
       font-size: var(--text-xl);
-    } 
+    }
   }
 
   .cta-section {
@@ -425,14 +421,14 @@ const StyledIndex = styled.main`
 
         @media (min-width: 768px) {
           margin: 0;
-          margin-right: var(--space-md);  
-        } 
+          margin-right: var(--space-md);
+        }
 
         @media (min-width: 992px) {
           position: relative;
           top: var(--space-xxl);
           width: 220px;
-        } 
+        }
       }
 
       .blog-intro-title-wrap-top {
@@ -482,7 +478,7 @@ const StyledIndex = styled.main`
           align-items: flex-start;
           margin-top: 0;
         }
-        
+
         .blog-intro-title-2 {
           margin: 0;
           font-size: var(--text-xxl);

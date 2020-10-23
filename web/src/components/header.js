@@ -3,8 +3,8 @@ import React, {useState} from 'react'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Dot from './dot.js'
 import {Spiral as Hamburger} from 'hamburger-react'
-import links from '../constants/links'
-import {blogLinks} from '../constants/links'
+import links, {blogLinks} from '../constants/links'
+
 import Logo from '../images/svg/logo.svg'
 import {v4 as uuidv4} from 'uuid'
 
@@ -16,34 +16,34 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <div className="container fw">
-        <div className="header-wrap">
-          <AniLink className="logo-wrap" to="/">
-            <Logo className="logo"/>
+      <div className='container fw'>
+        <div className='header-wrap'>
+          <AniLink className='logo-wrap' fade to='/'>
+            <Logo className='logo' />
           </AniLink>
-          <nav className="nav" role="navigation">
-            <div className={isOpen?`nav-wrap expanded`:`nav-wrap`}>
-              <ul className="nav-list left">
-                {blogLinks.map((item)=>{
-                  return(
-                    <li key={uuidv4()}><AniLink className="nav-link" fade to={item.path} key={uuidv4()}><Dot color={item.color} />{item.text}</AniLink></li>
+          <nav className='nav' role='navigation'>
+            <div className={isOpen ? `nav-wrap expanded` : `nav-wrap`}>
+              <ul className='nav-list left'>
+                {blogLinks.map((item) => {
+                  return (
+                    <li key={uuidv4()}><AniLink className='nav-link' fade to={item.path} key={uuidv4()}><Dot color={item.color} />{item.text}</AniLink></li>
                   )
                 })}
               </ul>
-              <ul className="nav-list right">
-              {links.map((item)=>{
-                  return(
-                    <li key={uuidv4()}><AniLink className="nav-link" fade to={item.path} key={uuidv4()}>{item.text}</AniLink></li>
+              <ul className='nav-list right'>
+                {links.map((item) => {
+                  return (
+                    <li key={uuidv4()}><AniLink className='nav-link' fade to={item.path} key={uuidv4()}>{item.text}</AniLink></li>
                   )
                 })}
               </ul>
             </div>
-            <button aria-label="Open nav menu" className="nav-burger" onClick={toggleNav}>
-              <Hamburger direction="right" size={30} />
+            <button aria-label='Open nav menu' className='nav-burger' onClick={toggleNav}>
+              <Hamburger direction='right' size={30} />
             </button>
           </nav>
         </div>
-      </div>    
+      </div>
     </StyledHeader>
   )
 }
@@ -142,15 +142,15 @@ const StyledHeader = styled.div`
 
         .nav-link {
           margin-left: var(--space-lg);
-        }  
+        }
       }
 
     }
 
     &.right {
-      
+
       @media (min-width: 992px) {
-        
+
         .nav-link {
           margin-left: var(--space-md);
         }
@@ -181,4 +181,3 @@ const StyledHeader = styled.div`
 `
 
 export default Header
-

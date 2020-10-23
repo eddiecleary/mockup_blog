@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
+import {useMediaPredicate} from 'react-media-hook'
 
 export const backBtn = () => {
-  const matches = useMediaQuery('(min-width: 768px)')
+  const matches = useMediaPredicate('(min-width: 768px)')
 
   return (
     <StyledBackBtn className='return'>

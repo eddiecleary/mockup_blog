@@ -1,35 +1,35 @@
-import React from "react"
-import { graphql } from 'gatsby'
+import React from 'react'
+import {graphql} from 'gatsby'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import styled from 'styled-components'
 import EnvelopeSvg from '../images/svg/envelope.svg'
 import SEO from '../components/seo'
 
-export const contact = ({ data }) => {
+export const contact = ({data}) => {
   return (
     <Layout>
       <SEO />
       <StyledContact>
 
-        <Hero img={data.heroImage.childImageSharp.fluid} altImgText="Amelia Pond typing on a laptop keyboard" title="Contact" Icon={EnvelopeSvg} subtitle={"Reach out to me!"} description={contactHeroDescription} btnText="Send Message" />
+        <Hero img={data.heroImage.childImageSharp.fluid} altImgText='Amelia Pond typing on a laptop keyboard' title='Contact' Icon={EnvelopeSvg} subtitle={'Reach out to me!'} description={contactHeroDescription} btnText='Send Message' />
         <p>hello world</p>
-        <section className="contact-section">
-          <div className="container">
-            <h2 className="contact-title">I Would Love To Hear From You!</h2>
-            <form className="form">
-              <div className="form-group w-50">
-                <label className="form-label" htmlFor="name">Name:</label>
-                <input type="text" placeholder="Name"/>
+        <section className='contact-section'>
+          <div className='container'>
+            <h2 className='contact-title'>I Would Love To Hear From You!</h2>
+            <form className='form'>
+              <div className='form-group w-50'>
+                <label className='form-label' htmlFor='name'>Name:</label>
+                <input type='text' placeholder='Name' />
               </div>
-              <div className="form-group w-50">
-                <label className="form-label" htmlFor="email">Email:</label>
-                <input type="email" placeholder="Email"/>
+              <div className='form-group w-50'>
+                <label className='form-label' htmlFor='email'>Email:</label>
+                <input type='email' placeholder='Email' />
               </div>
               <div className='form-group w-100'>
-                <label htmlFor="message" className="form-label">Message:</label>
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter message and click send!"/>
-                <button className="form-submit" type="submit">Send!</button>
+                <label htmlFor='message' className='form-label'>Message:</label>
+                <textarea name='message' id='message' cols='30' rows='10' placeholder='Enter message and click send!' />
+                <button className='form-submit' type='submit'>Send!</button>
               </div>
             </form>
           </div>
@@ -53,7 +53,7 @@ const StyledContact = styled.main`
     }
 
     .contact-title {
-      
+
     }
 
     .form {
@@ -155,8 +155,5 @@ export const query = graphql`
 `
 
 const contactHeroDescription = `Neutra bicycle rights banh mi pickled swag. Helvetica mumblecore tilde, occupy lyft kitsch schlitz umami la croix kombucha street art retro knausgaard. Taxidermy cloud bread +1, chillwave next level drinking vinegar affogato asymmetrical normcore. Salvia irony hexagon viral.`
-
-
-
 
 export default contact

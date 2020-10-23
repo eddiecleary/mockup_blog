@@ -3,7 +3,7 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'development'}`
 })
 
-const path = require('path');
+const path = require('path')
 
 const clientConfig = require('./client-config')
 
@@ -17,7 +17,6 @@ module.exports = {
     image: 'screenshot.jpg'
   },
   plugins: [
-    'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-styled-components',
@@ -27,14 +26,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-156955526-2",
+        trackingId: 'UA-156955526-2',
         head: false,
         anonymize: true,
         respectDNT: true,
         pageTransitionDelay: 400,
         defer: true,
-        cookieDomain: "eddiecleary.com",
-      },
+        cookieDomain: 'eddiecleary.com'
+      }
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -43,11 +42,11 @@ module.exports = {
         start_url: '/',
         icon: 'src/images/favicon.png',
         lang: 'en',
-        description: 'A mockup site built by Eddie Cleary to show expertise in building Gatsby blog websites.',
-      },
+        description: 'A mockup site built by Eddie Cleary to show expertise in building Gatsby blog websites.'
+      }
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
           include: [path.resolve(__dirname, 'src/images/svg/')]
@@ -59,13 +58,13 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Varela Round`,
+            family: `Varela Round`
           },
           {
             family: `Lora`
-          },
-        ],
-      },
+          }
+        ]
+      }
     },
     {
       resolve: 'gatsby-source-sanity',
@@ -80,8 +79,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`,
-      },
-    },
+        path: `${__dirname}/src/`
+      }
+    }
   ]
 }

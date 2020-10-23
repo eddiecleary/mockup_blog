@@ -1,8 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
+import {createGlobalStyle} from 'styled-components'
 import 'normalize.css'
-import "tailwindcss/base";
-import "tailwindcss/components";
-import "tailwindcss/utilities";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -24,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
     --mainShadow: 2px 2px 8px rgba(0,0,0,0.3);
     --mainSpacing: 1.3px;
     --space-unit:  1em;
-    --space-xxxxs: calc(0.125 * var(--space-unit)); 
+    --space-xxxxs: calc(0.125 * var(--space-unit));
     --space-xxxs:  calc(0.25 * var(--space-unit));
     --space-xxs:   calc(0.375 * var(--space-unit));
     --space-xs:    calc(0.5 * var(--space-unit));
@@ -49,7 +46,7 @@ export const GlobalStyles = createGlobalStyle`
     --heading-line-height: calc((var(--text-scale-ratio) * 0.8) * var(--line-height-multiplier));
   }
 
-  /* Global 
+  /* Global
   ----------------------------------------------- */
 
   *{
@@ -67,7 +64,7 @@ export const GlobalStyles = createGlobalStyle`
     color: var(--black);
   }
 
-  /* Typography 
+  /* Typography
   ----------------------------------------------- */
 
   body {
@@ -75,15 +72,15 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Lora', serif;
     line-height: var(--body-line-height);
 
-    
+
     @media (min-width: 480px) {
       --text-base-size: 1.15em;
     }
-    
+
     @media (min-width: 768px) {
       --text-base-size: 1.2em;
     }
-    
+
     @media (min-width: 992px) {
       --text-base-size: 1.3em;
     }
@@ -100,7 +97,7 @@ export const GlobalStyles = createGlobalStyle`
     line-height: var(--heading-line-height);
   }
 
-  /* Container 
+  /* Container
   ----------------------------------------------- */
 
   .container {
@@ -130,7 +127,7 @@ export const GlobalStyles = createGlobalStyle`
         max-width: 1100px;
       }
     }
-    
+
     &.fw {
       width: 100%;
       max-width: 100%;
@@ -139,7 +136,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
-  /* Button 
+  /* Button
   ----------------------------------------------- */
 
   .btn {
@@ -167,4 +164,4 @@ export const GlobalStyles = createGlobalStyle`
   .btn-secondary:hover {
     background-color: var(--lifestyle);
   }
-`;
+`

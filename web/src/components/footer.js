@@ -2,53 +2,56 @@ import React from 'react'
 import socialIcons from '../constants/social-icons'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Dot from './dot.js'
-import links from '../constants/links'
-import {blogLinks} from '../constants/links'
+import links, {blogLinks} from '../constants/links'
 import LogoSvg from '../images/svg/logo.svg'
 import {v4 as uuidv4} from 'uuid'
 import Newsletter from '../components/newsletter'
 import styled from 'styled-components'
+import BackBtn from './backBtn'
 
 export const Footer = () => {
   return (
-    <StyledFooter>
-      <div className="container">
+    <>
+      <StyledFooter>
+        <div className='container'>
 
-        <div className="footer-newsletter">
-          <Newsletter />
-        </div>
+          <div className='footer-newsletter'>
+            <Newsletter />
+          </div>
 
-        <div className="footer-nav-wrap">
-          <AniLink className="footer-logo-wrap" fade to="/">
-            <LogoSvg />
-          </AniLink>
-          <ul className="footer-nav-list left">
-            {blogLinks.map((item)=>{
-              return(
-                <li key={uuidv4()}><AniLink className="footer-nav-link" fade to={item.path} key={uuidv4()}><Dot color={item.color} />{item.text}</AniLink></li>
+          <div className='footer-nav-wrap'>
+            <AniLink className='footer-logo-wrap' fade to='/'>
+              <LogoSvg />
+            </AniLink>
+            <ul className='footer-nav-list left'>
+              {blogLinks.map((item) => {
+                return (
+                  <li key={uuidv4()}><AniLink className='footer-nav-link' fade to={item.path} key={uuidv4()}><Dot color={item.color} />{item.text}</AniLink></li>
+                )
+              })}
+            </ul>
+            <ul className='footer-nav-list right'>
+              {links.map((item) => {
+                return (
+                  <li key={uuidv4()}><AniLink className='footer-nav-link' fade to={item.path} key={uuidv4()}>{item.text}</AniLink></li>
+                )
+              })}
+            </ul>
+          </div>
+          <div className='footer-social-wrap'>
+            {socialIcons.map((item) => {
+              return (
+                <a key={uuidv4()} className='footer-social-icon' href={item.url} target='_blank' rel='noreferrer'>
+                  {item.icon}
+                </a>
               )
             })}
-          </ul>
-          <ul className="footer-nav-list right">
-            {links.map((item)=>{
-              return(
-                <li key={uuidv4()}><AniLink className="footer-nav-link" fade to={item.path} key={uuidv4()}>{item.text}</AniLink></li>
-              )
-            })}
-          </ul>
+          </div>
+          <small className='footer-copyright'>Copyright &copy; {new Date().getFullYear()}</small>
         </div>
-        <div className="footer-social-wrap">
-          {socialIcons.map((item)=>{
-            return(
-              <a key={uuidv4()} className="footer-social-icon" href={item.url} target="_blank" rel="noreferrer">
-                {item.icon}
-              </a>
-            )
-          })}
-        </div>
-        <small className="footer-copyright">Copyright &copy; {new Date().getFullYear()}</small>
-      </div>
-    </StyledFooter>
+      </StyledFooter>
+      <BackBtn />
+    </>
   )
 }
 
@@ -64,7 +67,7 @@ const StyledFooter = styled.footer`
 
     @media (min-width: 992px) {
       display: flex;
-      justify-content: space-between; 
+      justify-content: space-between;
       align-items: center;
     }
 
@@ -77,7 +80,7 @@ const StyledFooter = styled.footer`
       @media (min-width: 992px) {
         margin: 0;
       }
-      
+
       .footer-logo {
         margin: 0;
       }
@@ -96,8 +99,8 @@ const StyledFooter = styled.footer`
 
           .footer-nav-link {
             margin-left: var(--space-lg);
-          } 
-        } 
+          }
+        }
       }
 
       &.right {
@@ -105,7 +108,7 @@ const StyledFooter = styled.footer`
         @media (min-width: 992px) {
           .footer-nav-link {
             margin-left: var(--space-md);
-          }  
+          }
         }
       }
 
@@ -147,7 +150,7 @@ const StyledFooter = styled.footer`
     font-size: var(--text-sm);
 
     @media (min-width: 992px) {
-      margin-top: var(--space-lg);  
+      margin-top: var(--space-lg);
     }
   }
 `
