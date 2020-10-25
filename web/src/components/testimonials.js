@@ -8,20 +8,20 @@ import styled from 'styled-components'
 import {BsChatQuote} from 'react-icons/bs'
 
 export const Testimonials = ({number}) => {
-  const data = useStaticQuery(query);
+  const data = useStaticQuery(query)
 
-  const items = [];
+  const items = []
 
-  for(var i = 0; i < number; i++) {
+  for (var i = 0; i < number; i++) {
     items.push(
-      <li key={i} className="testimonial-list-item">
-        <blockquote key={uuidv4()} className="testimonial">
-          <p className="testimonial-text">
+      <li key={i} className='testimonial-list-item'>
+        <blockquote key={uuidv4()} className='testimonial'>
+          <p className='testimonial-text'>
             {testimonials[i].text}
           </p>
-          <footer className="testimonial-footer">
-            <BsChatQuote className="testimonial-icon"/>
-            <div className="testimonial-author-wrap">
+          <footer className='testimonial-footer'>
+            <BsChatQuote className='testimonial-icon' />
+            <div className='testimonial-author-wrap'>
               <cite>{testimonials[i].name}</cite>
               <span>{testimonials[i].job}</span>
             </div>
@@ -29,7 +29,7 @@ export const Testimonials = ({number}) => {
           </footer>
         </blockquote>
       </li>
-    );
+    )
   }
 
   return (
@@ -60,13 +60,13 @@ const StyledTestimonials = styled.ul`
   margin: 0;
   padding: 0;
 
-  
+
   @media(min-width: 768px) {
     display: flex;
     flex-direction: column;
     margin-top: var(--space-xxl);
   }
-  
+
   @media(min-width: 992px) {
     display: flex;
     flex-direction: row;
@@ -76,7 +76,7 @@ const StyledTestimonials = styled.ul`
   }
 
   .testimonial-list-item {
-    
+
     :nth-child(odd) {
       .testimonial {
         background-color: var(--primary-transparent);

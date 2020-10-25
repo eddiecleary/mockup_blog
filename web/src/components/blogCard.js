@@ -2,34 +2,35 @@ import React from 'react'
 import Img from 'gatsby-image'
 import PortableText from '@sanity/block-content-to-react'
 import styled from 'styled-components'
-import { categoryToColor } from '../lib/helpers.js'
+import {categoryToColor} from '../lib/helpers.js'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-export const BlogCard = ({imageId,title,publishedAt,category,excerpt,alt,slug}) => {
-
-  const color = categoryToColor(category, 0.55);
-  const colorOpaque = categoryToColor(category, 0.9);
+export const BlogCard = ({imageId, title, publishedAt, category, excerpt, alt, slug}) => {
+  const color = categoryToColor(category, 0.55)
+  const colorOpaque = categoryToColor(category, 0.9)
 
   return (
     <StyledBlogCard color={color} colorOpaque={colorOpaque}>
-      <div className="blog-card-img-wrap">
-        <Img fluid={imageId} className={"blog-card-img"} alt={alt} width={500}/>
+      <div className='blog-card-img-wrap'>
+        <Img fluid={imageId} className={'blog-card-img'} alt={alt} width={500} />
       </div>
-      <div className="blog-card-text-wrap">
+      <div className='blog-card-text-wrap'>
         <header>
-          <h4 className="blog-card-title">{title}</h4>
+          <h4 className='blog-card-title'>{title}</h4>
         </header>
-        <div className="blog-card-excerpt">
+        <div className='blog-card-excerpt'>
           <PortableText blocks={excerpt} />
         </div>
-        <footer className="blog-card-footer">
-          <span className="blog-card-category">{category.toString().toLowerCase()}</span>
-          <time className="blog-card-date">
-          {publishedAt}
-          </time> 
+        <footer className='blog-card-footer'>
+          <span className='blog-card-category'>{category.toString().toLowerCase()}</span>
+          <time className='blog-card-date'>
+            {publishedAt}
+          </time>
         </footer>
       </div>
-      <AniLink className="blog-card-link" fade to={`/blog/${category.toString().toLowerCase()}/${slug}`}></AniLink>
+      <AniLink className='blog-card-link' fade to={`/blog/${category.toString().toLowerCase()}/${slug}`}>
+        {category.toString()}
+      </AniLink>
     </StyledBlogCard>
   )
 }
@@ -45,7 +46,7 @@ const StyledBlogCard = styled.article`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  box-shadow: 2px 2px 8px ${props=>props.color};
+  box-shadow: 2px 2px 8px ${props => props.color};
   transition: all 0.3s ease;
   position: relative;
 
@@ -56,7 +57,7 @@ const StyledBlogCard = styled.article`
   @media (min-width: 992px) {
     flex-basis: 45%;
   }
-  
+
   .blog-card-img-wrap {
     position: relative;
 
@@ -97,18 +98,18 @@ const StyledBlogCard = styled.article`
 
       .blog-card-category {
         color: var(--white);
-        background-color: ${props=> props.colorOpaque};
+        background-color: ${props => props.colorOpaque};
         text-transform: capitalize;
         padding: var(--space-xxxs) var(--space-md);
         border-radius: 10px;
       }
-  
+
       .blog-card-author {
         font-style: initial;
       }
-  
+
       .blog-card-date {
-        
+
       }
     }
   }
@@ -119,6 +120,8 @@ const StyledBlogCard = styled.article`
     left: 0;
     right: 0;
     bottom: 0;
+    opacity: 0;
+    visibility: hidden;
   }
 `
 

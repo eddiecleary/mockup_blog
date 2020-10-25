@@ -38,8 +38,8 @@ export const Header = () => {
                 })}
               </ul>
             </div>
-            <button aria-label='Open nav menu' className='nav-burger' onClick={toggleNav}>
-              <Hamburger direction='right' size={30} />
+            <button className='nav-burger' onClick={toggleNav}>
+              <Hamburger label='Show nav' direction='right' size={30} />
             </button>
           </nav>
         </div>

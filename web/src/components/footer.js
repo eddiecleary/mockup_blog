@@ -41,7 +41,7 @@ export const Footer = () => {
           <div className='footer-social-wrap'>
             {socialIcons.map((item) => {
               return (
-                <a key={uuidv4()} className='footer-social-icon' href={item.url} target='_blank' rel='noreferrer'>
+                <a key={uuidv4()} aria-label={item.aria} className='footer-social-icon' href={item.url} target='_blank' rel='noreferrer'>
                   {item.icon}
                 </a>
               )

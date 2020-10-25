@@ -14,7 +14,8 @@ module.exports = {
     title: `Premium Blog Example | Eddie Cleary`,
     author: 'Eddie Cleary',
     description: 'A mockup site built by Eddie Cleary to show expertise in building Gatsby blog websites.',
-    image: 'screenshot.jpg'
+    image: 'screenshot.jpg',
+    siteUrl: 'https://blog.eddiecleary.com'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -23,6 +24,10 @@ module.exports = {
     'gatsby-plugin-transition-link',
     'gatsby-source-sanity-transform-images',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-preact',
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-robots-txt',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

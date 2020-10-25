@@ -4,18 +4,22 @@ import {FaFacebookSquare, FaTwitterSquare, FaInstagramSquare, FaPinterestSquare}
 export default [
   {
     icon: <FaFacebookSquare />,
-    url: 'https://www.facebook.com'
+    url: 'https://www.facebook.com',
+    aria: 'Facebook'
   },
   {
     icon: <FaTwitterSquare />,
-    url: 'https://www.twitter.com'
+    url: 'https://www.twitter.com',
+    aria: 'Twitter'
   },
   {
     icon: <FaInstagramSquare />,
-    url: 'https://www.instagram.com'
+    url: 'https://www.instagram.com',
+    aria: 'Instagram'
   },
   {
     icon: <FaPinterestSquare />,
-    url: 'https://www.pinterest.com'
-  },
+    url: 'https://www.pinterest.com',
+    aria: 'Pinterest'
+  }
 ]

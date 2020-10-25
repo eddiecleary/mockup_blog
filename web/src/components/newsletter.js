@@ -4,14 +4,14 @@ import React from 'react'
 export const Newsletter = () => {
   return (
     <StyledNewsletter>
-      <h5 className="newsletter-title">
+      <h5 className='newsletter-title'>
         subscribe to my free newsletter for updates!
       </h5>
       <form>
-        <label htmlFor="email" className="newsletter-label">email:</label>
-        <div className="newsletter-input-group">
-          <input className="newsletter-input" type="email" placeholder="Enter your email" />
-          <button className="btn btn-secondary newsletter-btn">subscribe</button>
+        <label htmlFor='email' className='newsletter-label'>email:</label>
+        <div className='newsletter-input-group'>
+          <input className='newsletter-input' type='email' id='email' placeholder='Enter your email' />
+          <button className='btn btn-secondary newsletter-btn'>subscribe</button>
         </div>
       </form>
     </StyledNewsletter>

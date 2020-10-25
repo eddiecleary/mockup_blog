@@ -13,8 +13,8 @@ export const blogLinks = [
     path: '/blog/travel',
     text: 'travel',
     color: '#1984b5'
-  },
-];
+  }
+]
 
 export default [
   {
@@ -24,6 +24,5 @@ export default [
   {
     path: '/contact',
     text: 'contact'
-  },
-];
-
+  }
+]
