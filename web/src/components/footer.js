@@ -7,7 +7,7 @@ import LogoSvg from '../images/svg/logo.svg'
 import {v4 as uuidv4} from 'uuid'
 import Newsletter from '../components/newsletter'
 import styled from 'styled-components'
-import BackBtn from './backBtn'
+// import BackBtn from './backBtn'
 
 export const Footer = () => {
   return (
@@ -50,7 +50,7 @@ export const Footer = () => {
           <small className='footer-copyright'>Copyright &copy; {new Date().getFullYear()}</small>
         </div>
       </StyledFooter>
-      <BackBtn />
+      {/* <BackBtn /> */}
     </>
   )
 }
