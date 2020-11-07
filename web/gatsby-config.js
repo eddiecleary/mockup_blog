@@ -11,11 +11,11 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   siteMetadata: {
-    title: `Premium Blog Example | Eddie Cleary`,
+    title: `Premium Blog Example | Skyward Designs`,
     author: 'Eddie Cleary',
-    description: 'A mockup site built by Eddie Cleary to show expertise in building Gatsby blog websites.',
+    description: 'A mockup site built by Skyward Designs to show expertise in building Gatsby blog websites.',
     image: 'screenshot.jpg',
-    siteUrl: 'https://blog.eddiecleary.com'
+    siteUrl: 'https://blog.skywarddesigns.com'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -43,11 +43,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Blog Mockup | Eddie Cleary',
+        name: 'Blog Mockup | Skyward Designs',
         start_url: '/',
         icon: 'src/images/favicon.png',
         lang: 'en',
-        description: 'A mockup site built by Eddie Cleary to show expertise in building Gatsby blog websites.'
+        description: 'A mockup site built by Skyward Designs to show expertise in building Gatsby blog websites.'
       }
     },
     {
